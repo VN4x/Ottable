@@ -1,140 +1,85 @@
-# Website Audit & Modernization Plan: estplast.ee
+# Plaan: Estplast.ee Eesti-keelne Visuaalne Auditiraport (PDF) ja Uue Kodulehe Visuaalsed Mockup-vaated
 
-## Executive Summary
-`https://estplast.ee/` is the corporate and product website for **Estplast Tootmine OÜ** (part of the Finnfoam OY group), an Estonian manufacturer of EPS (expanded polystyrene) insulation boards. While the site holds strong technical documentation (CAD/DWG drawings, Declarations of Performance, EPDs) and deep educational content on EPS manufacturing and testing, its technical execution, information architecture, design, SEO, and GEO (Generative Engine Optimization) suffer from severe legacy debt (c. 2019 Elementor 2.5 build).
+## 1. Eesmärk ja Strateegiline Fookus
+Koostada **eestikeelne, esinduslik ja visuaalselt kujundatud PDF-auditiraport** (`estplast-veebiaudit-ja-visioon.pdf`) koos **3 täispika (long-screenshot) visuaalse mockup-pildiga**, mis näitavad, milline peaks välja nägema Eesti juhtiva EPS-soojustusmaterjalide tootja **Estplast Tootmine OÜ** kaasaegne korporatiivne veebileht.
 
----
-
-## 1. Design & UX Analysis
-
-### Strengths
-- **Brand Consistency:** Uses a recognizable green (`#007548`) and neutral gray (`#54595f`) palette aligned with Estplast's physical packaging.
-- **Direct Product Grid:** All 13 core EPS products and 5 construction application areas are immediately visible on the homepage without deep click-paths.
-- **Group Cross-Promotion:** Clear visual links to parent/sister brands (Finnfoam and Warmotech).
-
-### Weaknesses
-- **Severe Navigation Duplication:** Every page renders **three separate navigation menus** simultaneously on desktop:
-  1. A full horizontal top bar (`FIRMAST`, `TOOTED`, `KONTAKT`, etc.).
-  2. An identical vertical left sidebar menu repeating the exact same items.
-  3. A secondary application menu below the sidebar (`Karkasskonstruktsioonid`, `Fassaadid`, `Katused`, `Põrandad`) that is incongruously set to collapse into a hamburger toggle.
-- **Outdated Visual Assets & Layout Hacks:**
-  - The main brand logo is a low-resolution `204x71` `.gif` file from 2019 (`logo.gif`).
-  - The left sidebar uses a decorative background image (`couple.png`) with a hardcoded `250px` bottom padding hack.
-  - Empty 20%-width spacer columns are used on desktop to center a 3-item product row inside a 5-column grid.
-  - Negative letter-spacing (`-0.9px`) and cramped padding (`3px`) are used to force long product names onto buttons.
-- **Broken & Misconfigured Interactive Elements:**
-  - On the homepage, the **"Vundamendid" (Foundations)** application card has `href="#"`—clicking it does nothing, even though `/est/plaatvundament/` and `/est/tehnovorgud/` exist in the sitemap.
-  - Header logos (`estplast.ee`, `warmotech.com`, `finnfoam.ee`) have `data-elementor-open-lightbox=""` enabled on their anchor tags.
-  - The Warmotech logo in the header links to `https://www.warmotech.com/.` (with a trailing dot) on the homepage and `https://www.warmotech.lt/ee` on subpages.
-- **Poor Mobile & Document UX:**
-  - Product specifications and Declarations of Performance (DoP) are embedded inside `<object type="application/pdf">` tags within Elementor tabs. Mobile browsers largely fail to render inline PDF `<object>` embeds, showing fallback text in English: *"It appears you don't have a PDF plugin for this browser. No biggie… you can click here to download the PDF file."*
-  - Contact page (`https://estplast.ee/est/kontakt/`) embeds a fixed `width="640" height="480"` Google MyMaps `<iframe>` that overflows narrow mobile viewports, and has no contact/inquiry form or clickable `tel:` / `mailto:` links.
+### Kliendi Äriline Positsioneerimine (Raporti keskne sõnum)
+1. **Turu liider ja suurettevõte (Finnfoam OY grupp):** Estplast on alates 2004. aastast tegutsev Eesti üks suurimaid ja olulisemaid ehitusmaterjalide tootjaid. Praegune (2019. aasta Elementoril põhinev, uduse `logo.gif` failiga ja kolmekordse menüüga) veebileht ei peegelda ettevõtte tegelikku mastaapi, tootmisvõimekust ega usaldusväärsust.
+2. **Mitte e-pood, vaid Nr. 1 Tehniline Tõeallikas (Source of Truth):** Estplast ei müü otse lõpptarbijale läbi e-poe, vaid läbi ehituskaupluste (Decora, Ehituse ABC, Bauhof, Espak, Ehituskaup24 jt). Seetõttu ei vaja koduleht ostukorvi, vaid peab olema **autoriteetne insenertehniline teabekeskus** projekteerijatele, arhitektidele, ehitusjärelevalvele, ehitajatele ja ekspertiiside/vaidluste lahendajatele.
+3. **Nähtavus otsingumootorites (SEO) ja tehisintellekti otsingus (GEO):** Kui arhitekt, ehitusekspert või AI-assistent (ChatGPT, Perplexity, Google AI) otsib EVS-EN 13163 standardeid, survepingeid, $\lambda_D$ soojusjuhtivust, DWG-sõlmejooniseid või toimivusdeklaratsioone (DoP), peavad Estplasti andmed olema masinloetaval HTML-kujul, mitte peidetud mobiilis mittetöötavatesse `<object>` PDF-akendesse.
 
 ---
 
-## 2. Structure & Information Architecture
+## 2. Loodavad Failid (Deliverables)
 
-### Strengths
-- **Logical Dual Taxonomy:** Categorizes offerings both by **Product Type** (`EPS 60` through `EPS 250`) and by **Construction Application** (Facades, Roofs, Floors, Frame structures, Foundations).
-- **Bilingual Coverage:** Full Estonian (`/est/`) and Russian (`/rus/`) trees covering products, guides, and reseller directories.
+Teostusetapis genereeritakse töökausta (`/workspace/app/output/` või juurkausta) järgmised failid:
 
-### Weaknesses
-- **Inconsistent URL Hierarchy & Routing:**
-  - Homepage is at `/`, Estonian subpages are under `/est/...`, but homepage CTA banners link to root-level slugs (`/karkasskonstruktsioonid/`, `/fassaadid/`, `/ff-floor-eps-100s/`) which rely on WordPress slug guessing or serve duplicate content at non-canonical paths.
-  - Submenu anchor links under "MIS ON EPS?" point to `/mis-on-eps/#omadused` instead of `/est/mis-on-eps/#omadused`.
-- **Context-Losing Language Switcher:** The `EST | РУС` switcher is hardcoded to `/` and `/rus`. Switching language on a specific product page (e.g., `/est/eps-60/`) dumps the user back to the Russian homepage (`/rus`) instead of `/rus/eps-60/`.
-- **Orphaned & Semi-Orphaned Pages:**
-  - `/est/sertifikaadid/` (containing all DoP certificates, including `EPS 50` and `EPS 70 Fassaad`), `/est/plaatvundament/`, and `/est/tehnovorgud/` exist in the sitemap but are missing from the main navigation or unlinked on the homepage.
-  - The Russian menu omits the Environmental Product Declaration (`KESKKONNADEKLARATSIOON`) page entirely.
-  - Typo in Russian URL slug: `https://estplast.ee/rus/поff-floor-eps-100s/` (`%d0%bf%d0%beff-floor-eps-100s`).
-- **Unhygienic File Paths:** PDFs and DWG files are hosted at `/pdf/...` with spaces, parentheses, and umlauts in filenames (e.g., `/pdf/04 Keldri seina (vundamendi) soojustus.pdf?rand=9255`) and a hardcoded `?rand=9255` query string instead of proper cache-Control versioning.
-
----
-
-## 3. SEO (Search Engine Optimization) Analysis
-
-### Strengths
-- **Clean Core Product Slugs:** Estonian product URLs (`/est/eps-60/`, `/est/eps-100-silver/`) match exact high-intent search queries in the local construction market.
-- **High-Value Educational Content:** `/est/mis-on-eps/` and `/est/kasulikku/` contain rich, original Estonian technical text explaining EPS manufacturing, thermal conductivity, and window installation with thermal profiles.
-
-### Weaknesses
-- **Critical `<html lang="en-US">` Mismatch:** Every page—both Estonian and Russian—declares `<html lang="en-US">`. Search engines, browsers, and screen readers are told the site is in US English, triggering inappropriate browser auto-translate prompts and hurting regional language indexing.
-- **Zero SEO Plugin / Meta Tag Infrastructure:**
-  - **No `<meta name="description">`** on any page.
-  - **No OpenGraph (`og:*`) or Twitter Card tags** for social/messaging link previews.
-  - **Weak `<title>` tags:** The Russian homepage title is literally `<title>RUS – ESTPLAST</title>`. Product pages have bare titles like `<title>EPS 60 – ESTPLAST</title>` without keywords like *soojustusplaadid*, *vahtpolüstüreen*, or *fassaadiplaat*.
-- **Zero `hreflang` Implementation:** There are no `<link rel="alternate" hreflang="et" ...>` or `hreflang="ru"` tags linking the Estonian and Russian equivalents.
-- **Broken Heading Hierarchy (No `<h1>` Tags):**
-  - The homepage has **zero `<h1>`–`<h6>` headings**—only buttons and images.
-  - Product pages (`EPS 60`, etc.) have **zero `<h1>` headings**; product titles only exist inside Elementor tab navigation links (`<div class="elementor-tab-title">`).
-  - Content pages (`MIS ON EPS?`, `KONTAKT`) jump straight to `<h4>` and `<h5>` tags without `<h1>`, `<h2>`, or `<h3>`.
-- **Trapped Technical Content (PDF Silos):** Crucial product specs (lambda values $\lambda_D$, compressive strength kPa, sheet dimensions, package $m^2$/$m^3$ tables) are locked inside PDF files (`<object data="/pdf/EPS 60.pdf">`) rather than HTML tables. On `/est/eps-60/`, the main tab contains only a single product image and zero HTML text.
-- **Empty Image `alt` Attributes:** Virtually every `<img>` tag across the site (including all logos and all 13 product images) has `alt=""`.
-- **Sitemap Pollution & Bloat:**
-  - `wp-sitemap.xml` exposes **`wp-sitemap-posts-elementor_library-1.xml`**, indexing 31 internal Elementor layout fragments (`?elementor_library=logo`, `?elementor_library=nav-left-lat`, including abandoned Latvian/Lithuanian templates) as public crawlable pages.
-  - `wp-sitemap-users-1.xml` exposes the admin author archive (`/author/andreisurflink-ee/`).
+1. **`estplast-audit-raport-et.pdf`** – Kõrgkvaliteediline, mitmeleheküljeline A4 formaadis visuaalne PDF-raport (eesti keeles), mis sisaldab:
+   - Tiitellehte ja juhtkonna kokkuvõtet (Executive Summary) koos skoorikaartidega.
+   - Süvaanalüüsi: **Miks praegune 2019. a visuaalne identiteet kahjustab turuliidri kuvandit** ja kuidas kaasaegne B2B korporatiivne disain tõstab usaldust arhitektide ja ehitajate silmis.
+   - Struktuuri, SEO, GEO (AI-otsingu) ja tehnilise turvalisuse analüüsi koos konkreetsete tõenditega praeguselt lehelt (`<html lang="en-US">`, 0 `<h1>` pealkirja, 3 dubleeritud menüüd, katkised lingid, PDF-lõksud).
+   - Manustatud võrdlusvaateid ja **3 uue disaini mockup-kuvatõmmist** koos selgitustega.
+   - Tegevuskava (3 faasi) Nr. 1 eksperdiplatvormi loomiseks.
+2. **3 täispikka visuaalset mockup-pilti (PNG, 1440px laiusega long-screenshotid):**
+   - **`mockup-1-avaleht-korporatiivne.png`** – *Kaasaegne B2B Avaleht ja Positsioneerimine:*
+     - Puhas, ühtne päis (SVG logo, Finnfoam & Warmotech grupi märgis, nutikas `EST | РУС | ENG` keelevahetaja, selge navigatsioon).
+     - Autoriteetne Hero-sektsioon: *"Eesti juhtiv EPS-soojustusmaterjalide tootja ja insenertehniline kompetentsikeskus alates 2004. aastast"* koos kiirviidetega: **Projekteerijale (CAD/DWG & BIM)**, **Tootekataloog & kalkulaator**, **Toimivusdeklaratsioonid (DoP) & Katselabor**.
+     - Interaktiivne "Vali lahendus konstruktsiooni järgi" (Vundamendid, Põrandad, Fassaadid, Katused, Karkassid, Tehnovõrgud) koos ristlõike joonistega.
+     - Kvaliteedigarantii plokk: Tinius Olsen H5K-T UTM katselabori andmed, EVS-EN 13163 vastavus, EPD keskkonnadeklaratsioon.
+     - Edasimüüjate plokk (Decora, Ehituse ABC, Bauhof, Espak, Ehituskaup24) – selge suunamine jaekaubandusse ilma e-poe mürata.
+   - **`mockup-2-tooteleht-insenerile.png`** – *Tehniline Tooteleht (nt EPS 100 / EPS 60 Silver) – "Source of Truth" vaade:*
+     - Selge `<h1>` pealkiri, kasutusvaldkonna ikoonid ja lühikokkuvõte.
+     - **HTML-põhine tehniliste näitajate tabel** (Soojusjuhtivus $\lambda_D$, survepinge $\text{CS(10)}$, paindetugevus $\text{BS}$, tuleklass E, veeimavus, mõõtmed ja pakenditabel $m^2/m^3$) – koheselt loetav nii telefonis ehitusplatsil kui ka AI-ootoritele ja Google'ile.
+     - Otseallalaadimise keskus: **Toimivusdeklaratsioon (DoP PDF)**, **Tooteleht (PDF)**, **Keskkonnadeklaratsioon (EPD)** ja seotud **DWG/PDF sõlmejoonised**.
+     - "Kus seda kasutada / Kus mitte kasutada" eksperdiplokk vaidluste ja ehitusvigade ennetamiseks + nupp "Leia lähim edasimüüja (Decora, Ehituse ABC, Bauhof...)".
+   - **`mockup-3-teadmiste-ja-ekspertiisikeskus.png`** – *Arhitekti, Ehitusjärelevalve ja Ekspertiisi Teabekeskus ("Inseneri Töölaud"):*
+     - Otsitav ja filtreeritav **CAD / DWG / PDF sõlmejooniste pank** (vundamendid, soklid, tuulduvad ja krohvitavad fassaadid, katused, Warmotech aknasõlmed) koos eelvaatega.
+     - **Normatiivid, standardid ja vaidluste ennetamine:** Ehitusfüüsikalised uuringud, niiskusrežiimi/hingamise arvutused, tuleohutusklassid ja ametlikud paigaldusnõuded (allikas ehitusvaidluste ja järelevalve jaoks).
+     - **Katselabor & Sertifikaadid (DoP arhiiv):** Kiirpäring toote ja aasta järgi (sh ajaloolised deklaratsioonid vanemate objektide ekspertiisiks).
+     - Otsekontakt Estplasti tehnilise konsultandiga / projektijuhiga.
 
 ---
 
-## 4. GEO (Generative Engine Optimization / AI Search) & Local SEO
+## 3. Eestikeelse Raporti Struktuur (`estplast-audit-raport-et.pdf`)
 
-### Strengths
-- **Authoritative First-Party Facts:** Specific facts on `/est/mis-on-eps/` (e.g., testing every 2 hours with a Tinius Olsen H5K-T UTM machine to EVS-EN 13163 standards; 5-stage expansion and stabilization process) are strong citeable facts for LLMs.
-- **Comprehensive Reseller Directory:** `/est/edasimuujad/` maps retail availability across 11 Estonian counties.
-
-### Weaknesses
-- **Zero Structured Data (Schema.org JSON-LD):** There is no `Organization`, `LocalBusiness`, `ManufacturingBusiness`, `Product`, `BreadcrumbList`, or `FAQPage` JSON-LD anywhere on the site. AI engines and Google Rich Results have no machine-readable entity graph for Estplast or its products.
-- **Machine-Unfriendly Product Specs:** Because technical specifications on product pages are inside embedded PDFs rather than semantic HTML `<table>` elements, AI search crawlers (ChatGPT Search, Perplexity, Google AI Overviews) that fetch page HTML see zero technical parameters on `/est/eps-60/`.
-- **No `llms.txt`:** `/llms.txt` returns `404`, missing an opportunity to provide a concise markdown index of products, technical specs, DoP certificates, and CAD drawings for AI agents.
-- **Inconsistent Reseller & Contact Formatting:** Phone numbers on `/est/kontakt/` and `/est/edasimuujad/` mix formats (`6 088 751`, `+372 510 0494`, `32 781 85`) without `tel:` links or structured `LocalBusiness` / `Store` markup.
-
----
-
-## 5. Technology, Performance & Security
-
-### Strengths
-- **Lightweight Server Response:** Static HTML pages are relatively small and served quickly.
-- **XML-RPC Blocked:** `/xmlrpc.php` returns `403 Forbidden`, mitigating brute-force amplification attacks.
-
-### Weaknesses
-- **Severely Outdated Plugin & Theme Stack:**
-  - **Elementor `v2.5.4` & Elementor Pro `v2.4.7`** (released in **2019**, over 7 years outdated) running on WordPress `6.6.11` with default theme `Twenty Nineteen v1.3`. Running 2019 Elementor versions poses high security and PHP compatibility risks.
-  - **Font Awesome `4.7.0`** (legacy icon font).
-- **DOM & Script Bloat:**
-  - Duplicating the 25-item navigation menu 6 times in the DOM (3 menus $\times$ 2 desktop/mobile containers per widget) inflates the HTML node count on every page.
-  - Loads Gutenberg block library CSS (`wp-block-library`) and `global-styles-inline-css` alongside Elementor CSS even though pages use `elementor_canvas`.
-  - Loads Google Fonts (`Roboto` and `Roboto Slab`) with **all 18 font weights/styles** (`100` through `900italic`), causing unnecessary render-blocking font downloads.
-- **Security & Privacy Gaps:**
-  - **User Enumeration Exposed:** `/wp-json/wp/v2/users` is publicly accessible and leaks the administrator's email address as the username/display name (`andrei@surflink.ee`).
-  - **Mixed Content Outbound Links:** Reseller links on `/est/edasimuujad/` use insecure `http://` URLs (`http://www.bauhof.ee/`, `http://www.optimera.ee`, etc.).
-  - **Missing Legal/Privacy Compliance:** No Privacy Policy, Cookie Policy, or terms link in the footer despite loading third-party analytics (`siteimproveanalytics.com`) and Google Maps iframes.
+1. **Tiitelleht:** *ESTPLAST.EE Digitaalne Audit ja Kaasaegse Eksperdiplatvormi Visioon* (Kuupäev, koondhinnang, fookus: Tootja korporatiivne kuvand & tehniline teabekeskus).
+2. **Juhtkonna kokkuvõte (Executive Summary):**
+   - Praeguse olukorra diagnostika skoorikaardina (Visuaalne disain & bränd 3.5/10, Struktuur & UX 4.5/10, SEO 3.0/10, GEO / AI-otsing 3.5/10, Tehnoloogia & turvalisus 4.0/10).
+   - Strateegiline vastuolu: Estplast on reaalsuses Eesti turu liider (Finnfoam grupp, unikaalne Tinius Olsen katselabor Maardus), kuid digitaalselt näeb välja nagu 2010ndate väikeettevõte.
+3. **1. Visuaalne Disain ja Korporatiivne Kuvand (Süvaanalüüs):**
+   - **Miks 2019. aasta visuaal töötab turuliidri vastu:** Udune `logo.gif`, kolmekordne dubleeritud menüü, juhuslikud taustapildid (`couple.png`), kokkusurutud nupud (`letter-spacing: -0.9px`), katkine "Vundamendid" kaart (`href="#"`).
+   - **Tootja vs. E-pood:** Miks Estplast ei vaja e-poodi, vaid peab suunama ostusoovi sujuvalt partneritele (Decora, Ehituse ABC, Bauhof, Espak), hoides ise **Nr. 1 tehnilise eksperdi ("Source of Truth")** positsiooni.
+   - **Kasu kaasaegsest korporatiivsest visuaalist:** Kuidas puhas Põhjamaade tööstusdisain (Finnfoam grupi vääriline) loob kohese usalduse arhitektide, projekteerijate, korteriühistute ja ehitusjärelevalve silmis.
+4. **2. Veebilehe Struktuur ja Kasutajakogemus (Arhitekt, Ehitaja, Ekspert):**
+   - Navigatsioonikaose lahendamine (3 menüü asemel 1 selge süsteem).
+   - Mobiilikogemus ehitusplatsil: Miks `<object type="application/pdf">` ei tööta nutitelefonides ja kuidas ehitusjärelevalve või töödejuhataja peab saama parameetrid kätte 3 sekundiga.
+   - Keelevahetuse (`EST | РУС | ENG`) ja URL-struktuuri (`/est/` vs juurkaust) korrastamine.
+5. **3. SEO ja GEO (Nähtavus Google'is ja AI-assistentides):**
+   - Kriitilised SEO vead: `<html lang="en-US">` kõigil lehtedel, `<h1>` pealkirjade ja meta-kirjelduste täielik puudumine, Elementori sisemiste mallide (`?elementor_library=...`) lekkimine Google'i indeksisse.
+   - **GEO (Generative Engine Optimization):** Kuidas teha Estplastist Nr. 1 viidatav allikas AI-mootoritele (HTML-tabelid PDF-ide asemel, `ManufacturingBusiness` ja `Product` Schema.org JSON-LD, `/llms.txt` fail, ekspertiisi- ja standardite andmebaas).
+6. **4. Tehnoloogia ja Turvalisus:**
+   - 7 aastat vana Elementor (`v2.5.4`) riskid, administraatori e-posti leke (`/wp-json/wp/v2/users`), DOM-i puhastamine (6x menüükood) ja GDPR/küpsiste teavituse lisamine.
+7. **5. Uue Kodulehe Visuaalne Kontseptsioon (3 Täispikka Mockup-vaadet):**
+   - Detailne ülevaade ja täismõõdus visuaalid:
+     1. *Mockup 1: Kaasaegne Korporatiivne Avaleht*
+     2. *Mockup 2: Insenertehniline Tooteleht (HTML andmetabelid + DoP keskus)*
+     3. *Mockup 3: Projekteerija, Ehitusjärelevalve ja Ekspertiisi Teabekeskus*
+8. **6. Tegevuskava (3 Etappi):** Konkreetne teekaart kiiretest parandustest kuni täieliku platvormi uuenduseni.
 
 ---
 
-## 6. Prioritized Action Plan (Roadmap)
+## 4. Tehniline Teostusplaan (Implementation Steps)
 
-### Phase 1: Critical SEO, Security & Broken UX Fixes (Immediate)
-1. **Fix Language Declarations & Hreflang:** Install a proper multilingual/SEO plugin (e.g., Polylang/WPML + Yoast/RankMath) so Estonian pages output `<html lang="et">`, Russian pages output `<html lang="ru">`, and bidirectional `hreflang` tags connect corresponding pages.
-2. **Clean Up Sitemaps & User Enumeration:**
-   - Exclude `elementor_library` custom post types and `users` archives from `wp-sitemap.xml`.
-   - Restrict `/wp-json/wp/v2/users` to authenticated requests and change the admin display name from an email address.
-3. **Fix Broken Links & Lightbox Bugs:**
-   - Point the homepage "Vundamendid" card (`href="#"`) to `/est/plaatvundament/`.
-   - Remove `data-elementor-open-lightbox` from header logo links and fix `https://www.warmotech.com/.` trailing dot.
-   - Standardize all internal links to canonical `/est/...` paths and fix the Russian slug typo (`/rus/ff-floor-eps-100s/`).
-
-### Phase 2: Content Un-Siloing, Semantic HTML & GEO Optimization
-1. **Convert PDF Product Specs into Semantic HTML:** On all 13 product pages (`/est/eps-60/`, etc.), render technical parameters ($\lambda_D$, compressive strength, dimensions, fire class, application uses) directly as HTML `<table>` and text on the primary view, keeping PDFs as downloadable buttons (`Tooteleht PDF`, `Toimivusdeklaratsioon PDF`).
-2. **Restore Semantic Heading Hierarchy & Alt Text:**
-   - Add a clear `<h1>` to the homepage and every product/content page.
-   - Populate descriptive Estonian and Russian `alt` attributes for all product and diagram images.
-3. **Implement Schema.org JSON-LD & `/llms.txt`:**
-   - Add `ManufacturingBusiness` schema on the homepage/contact page and `Product` schema on all EPS product pages.
-   - Publish `/llms.txt` summarizing Estplast's product line, technical ratings, and documentation URLs for AI engines.
-
-### Phase 3: Design, Navigation & Tech Stack Modernization
-1. **Consolidate Navigation:** Remove the redundant left vertical menu and secondary hamburger menu; unify into a single responsive header navigation with a page-aware `ET | RU | EN` language switcher.
-2. **Modernize Stack & Assets:**
-   - Upgrade WordPress, PHP, theme, and Elementor (or migrate to native WordPress Block Editor / GeneratePress for a zero-bloat footprint) in a staging environment.
-   - Replace `logo.gif` with an SVG logo, convert product photos to WebP, and restrict Google Fonts to weights `400`, `500`, and `700`.
-3. **Upgrade Contact & Conversion UX:** Add clickable `tel:` and `mailto:` links, a responsive Google Map embed, a B2B quote/technical inquiry form, and a GDPR-compliant privacy notice.
+1. **Tööriistade ettevalmistus (`/tmp/kilo` või lokaalne töökeskkond):**
+   - Kasutada Node.js-i ja headless brauserit (`playwright` või `puppeteer`), et renderdada HTML/CSS-põhised kõrgresolutsiooniga täispikad mockup-ekraanipildid (`1440px` laius, täispikkus) ning genereerida puhta tüpograafia ja leheküljevahetustega PDF-raport (`page.pdf({ format: 'A4', printBackground: true })`).
+2. **3 Visuaalse Mockupi loomine ja renderdamine PNG-piltideks:**
+   - Kujundada detailse HTML/CSS-iga 3 terviklikku veebivaadet (Estplasti rohelise `#007548`, tumehalli `#1e293b`, valge ja tehnilise halli `#f8fafc` toonides, geomeetriliste konstruktsioonijooniste, reaalsete EPS 60 / EPS 100 Silver andmete, Tinius Olsen labori ja Decora / Ehituse ABC / Bauhofi edasimüüjate viidetega).
+   - Salvestada täispikad kuvatõmmised:
+     - `/workspace/app/mockup-1-avaleht-korporatiivne.png`
+     - `/workspace/app/mockup-2-tooteleht-insenerile.png`
+     - `/workspace/app/mockup-3-teadmiste-ja-ekspertiisikeskus.png`
+3. **Eestikeelse Visuaalse Auditiraporti (`estplast-audit-raport-et.pdf`) koostamine ja genereerimine:**
+   - Koostada trükikvaliteediga HTML/CSS raport, mis sisaldab kogu tõlgitud ja täiendatud analüüsi, skoorigraafikuid, "Enne vs. Pärast" võrdlustabeleid ja manustatud 3 mockup-pilti.
+   - Genereerida PDF fail `/workspace/app/estplast-audit-raport-et.pdf` (ning salvestada ka HTML-versioon `/workspace/app/estplast-audit-raport-et.html` mugavaks brauseris vaatamiseks).
+4. **Kvaliteedikontroll (Verification):**
+   - Kontrollida, et kõik 3 PNG mockup-pilti ja PDF-raport on loodud, mittetühjad, korrektse eesti keele ja terminoloogiaga (soojustusplaadid, toimivusdeklaratsioon, survepinge, soojusjuhtivus, külmasild, ehitusfüüsika) ning vastavad täpselt kliendi nõuetele (ei mingit e-poodi; fookus Nr. 1 eksperdi ja tootja staatusel).
