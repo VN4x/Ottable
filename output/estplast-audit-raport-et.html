@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <title>ESTPLAST.EE Digitaalne Audit ja Kaasaegse Eksperdiplatvormi Visioon</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    :root {
+      --brand-green: #007548;
+      --brand-green-dark: #005836;
+      --brand-green-light: #e6f4ee;
+      --brand-accent: #10b981;
+      --slate-950: #0b1320;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-300: #cbd5e1;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --white: #ffffff;
+      --red-600: #dc2626;
+      --red-50: #fef2f2;
+      --amber-600: #d97706;
+      --amber-50: #fffbeb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', 'Liberation Sans', sans-serif;
+      color: var(--slate-800);
+      background: #cbd5e1;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      background: var(--white);
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .page-header {
+      background: var(--slate-900);
+      color: var(--white);
+      padding: 12px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--brand-green);
+      font-size: 11px;
+    }
+    .page-header strong {
+      color: #6ee7b7;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .page-body {
+      padding: 24px 36px;
+      flex: 1;
+    }
+
+    .page-footer {
+      background: var(--slate-50);
+      border-top: 1px solid var(--slate-200);
+      padding: 10px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: var(--slate-500);
+    }
+
+    /* Typography & Utility Elements */
+    .eyebrow {
+      color: var(--brand-green);
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      margin-bottom: 4px;
+    }
+    h1.doc-title {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    h2.sec-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin-bottom: 8px;
+      letter-spacing: -0.2px;
+    }
+    h3.sub-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin-bottom: 6px;
+    }
+    p.lead {
+      font-size: 12px;
+      color: var(--slate-600);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    /* Cover Banner on Page 1 */
+    .cover-hero {
+      background: linear-gradient(135deg, #0b1320 0%, #0f2922 65%, #005836 100%);
+      color: var(--white);
+      padding: 34px 36px 28px;
+      border-bottom: 4px solid var(--brand-accent);
+    }
+    .cover-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.14);
+      font-size: 11px;
+      color: #a7f3d0;
+    }
+    .cover-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .pillar-box {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 6px;
+      padding: 11px 12px;
+    }
+    .pillar-box strong {
+      display: block;
+      font-size: 11.5px;
+      color: #6ee7b7;
+      margin-bottom: 4px;
+    }
+    .pillar-box p {
+      font-size: 10.5px;
+      color: #e2e8f0;
+      line-height: 1.4;
+    }
+
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .card-dark {
+      background: var(--slate-900);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 15px 18px;
+      margin-bottom: 12px;
+    }
+    .card-green {
+      background: var(--brand-green-light);
+      border: 1.5px solid var(--brand-green);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .card-red {
+      background: var(--red-50);
+      border: 1px solid #fca5a5;
+      border-left: 4px solid var(--red-600);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+    }
+
+    /* Tables */
+    table.audit-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+    table.audit-table th {
+      background: var(--slate-900);
+      color: var(--white);
+      text-align: left;
+      padding: 8px 10px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    table.audit-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--slate-200);
+      vertical-align: top;
+    }
+    table.audit-table tr:nth-child(even) {
+      background: var(--slate-50);
+    }
+
+    /* Score Bars */
+    .score-bar-wrap {
+      width: 100%;
+      background: var(--slate-200);
+      height: 8px;
+      border-radius: 99px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+    }
+    .badge-crit {
+      background: #fee2e2;
+      color: #b91c1c;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 10px;
+      display: inline-block;
+    }
+    .badge-target {
+      background: #d1fae5;
+      color: #047857;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 10px;
+      display: inline-block;
+    }
+    code {
+      font-family: 'DejaVu Sans Mono', monospace;
+      font-size: 10px;
+      background: var(--slate-100);
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: #be123c;
+    }
+
+    /* Mockup Showcase Pages */
+    .mockup-showcase-grid {
+      display: grid;
+      grid-template-columns: 1.22fr 0.78fr;
+      gap: 18px;
+      align-items: start;
+      height: 232mm;
+    }
+    .mockup-frame {
+      border: 2px solid var(--slate-300);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--slate-900);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .mockup-browser-top {
+      background: var(--slate-800);
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--slate-300);
+      font-size: 9.5px;
+      font-family: monospace;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+    .mockup-img-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f1f5f9;
+      overflow: hidden;
+      padding: 4px;
+    }
+    .mockup-img-container img {
+      max-width: 100%;
+      max-height: 218mm;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border: 1px solid var(--slate-200);
+    }
+    .annotation-step {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-left: 3.5px solid var(--brand-green);
+      border-radius: 6px;
+      padding: 9px 11px;
+      margin-bottom: 9px;
+    }
+    .annotation-step > strong {
+      display: block;
+      font-size: 11px;
+      color: var(--slate-900);
+      margin-bottom: 2px;
+    }
+    .annotation-step p {
+      font-size: 10.2px;
+      color: var(--slate-600);
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1: COVER & EXECUTIVE SUMMARY ==================== -->
+  <div class="page">
+    <div class="cover-hero">
+      <div class="cover-meta">
+        <span><strong>ESTPLAST TOOTMINE OÜ (FINNFOAM OY GROUP)</strong> · VEEBILEHE STRATEEGILINE JA TEHNILINE AUDIT</span>
+        <span>Kuupäev: November 2026 · Veebileht: https://estplast.ee/</span>
+      </div>
+      <div style="font-size:11px; font-weight:800; color:#34d399; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">
+        Juhtkonna Koondraport &amp; Uue Eksperdiplatvormi Visioon
+      </div>
+      <h1 class="doc-title">
+        ESTPLAST.EE Digitaalne Audit: Kuidas muuta Eesti juhtiva EPS-tootja veebileht Nr. 1 Insenertehniliseks Tõeallikaks
+      </h1>
+      <p style="font-size:12px; color:#cbd5e1; max-width:95%; line-height:1.5;">
+        Põhjalik visuaalse identiteedi, infoarhitektuuri, mobiilse kasutajakogemuse (UX), otsingumootorite nähtavuse (SEO), tehisintellekti otsingu (GEO) ja küberturvalisuse audit koos 3 täispika visuaalse mockup-kontseptsiooniga.
+      </p>
+
+      <div class="cover-pillars">
+        <div class="pillar-box">
+          <strong>1. Turuliider (Finnfoam OY Grupp)</strong>
+          <p>Estplast on alates 2004. a Eesti juhtiv EPS-soojustuse tootja. 2019. a veebileht ei peegelda kontserni tegelikku mastaapi ega Tinius Olsen katselabori taset.</p>
+        </div>
+        <div class="pillar-box">
+          <strong>2. Mitte E-pood, vaid #1 Tõeallikas</strong>
+          <p>Müük toimub läbi jaekettide (Decora, Ehituse ABC, Bauhof, Espak jt). Veebileht peab olema inseneri, arhitekti, järelevalve ja ekspertiisi töölaud.</p>
+        </div>
+        <div class="pillar-box">
+          <strong>3. Masinloetav SEO &amp; AI-Otsing (GEO)</strong>
+          <p>PDF-raamidesse peidetud parameetrid tuleb asendada HTML-andmetabelite, DWG-sõlmede panga, DoP-arhiivi ja Schema.org struktuuriga.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-body" style="padding-top:18px;">
+      <div class="eyebrow">Juhtkonna kokkuvõte (Executive Summary)</div>
+      <h2 class="sec-title">Strateegiline vastuolu: Tööstusliider reaalsuses vs. 2019. a visuaal veebis</h2>
+      <p class="lead">
+        <strong>Estplast Tootmine OÜ</strong> on üle 20-aastase ajalooga Eesti ehitusmaterjalitööstuse nurgakivi ja Soome <strong>Finnfoam OY</strong> grupi liige. Ettevõttel on Maardus tipptasemel tootmine ja Eestis unikaalne <strong>Tinius Olsen H5K-T UTM</strong> katselabor. Praegune, 2019. aastal ehitatud veebileht (Elementor v2.5.4) kahjustab aga otseselt turuliidri kuvandit ning peidab väärtuslikud insenertehnilised andmed mobiilis mittetöötavatesse PDF-akendesse.
+      </p>
+
+      <!-- Scorecard Table -->
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th style="width:26%;">Auditeeritud valdkond</th>
+            <th style="width:14%;">Praegune skoor</th>
+            <th style="width:14%;">Sihttase (Uus)</th>
+            <th style="width:46%;">Peamised tuvastatud puudused estplast.ee lehel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Visuaalne disain &amp; korporatiivne bränd</strong></td>
+            <td>
+              <span class="badge-crit">3,5 / 10</span>
+              <div class="score-bar-wrap"><div class="score-bar-fill" style="width:35%; background:#dc2626;"></div></div>
+            </td>
+            <td><span class="badge-target">9,5 / 10</span></td>
+            <td>Udune <code>logo.gif</code>, 3 dubleeritud menüüd korraga ekraanil, <code>couple.png</code> taustahäkk, kokkusurutud nupud ja katkine "Vundamendid" kaart (<code>href="#"</code>).</td>
+          </tr>
+          <tr>
+            <td><strong>2. Struktuur, UX &amp; mobiilivaade objektil</strong></td>
+            <td>
+              <span class="badge-crit">4,5 / 10</span>
+              <div class="score-bar-wrap"><div class="score-bar-fill" style="width:45%; background:#d97706;"></div></div>
+            </td>
+            <td><span class="badge-target">9,5 / 10</span></td>
+            <td>Kõik 13 tootelehte kasutavad <code>&lt;object type="application/pdf"&gt;</code> akent, mis nutitelefonis (iOS/Android) ei avane. Keelevahetus viskab alati avalehele; ENG vaade puudub.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Tehniline ja sisuline SEO (Google)</strong></td>
+            <td>
+              <span class="badge-crit">3,0 / 10</span>
+              <div class="score-bar-wrap"><div class="score-bar-fill" style="width:30%; background:#dc2626;"></div></div>
+            </td>
+            <td><span class="badge-target">9,5 / 10</span></td>
+            <td>Kõigil lehtedel on <code>&lt;html lang="en-US"&gt;</code>, <strong>0 <code>&lt;h1&gt;</code> pealkirja</strong>, 0 meta-kirjeldust ning <code>wp-sitemap.xml</code> indekseerib 31 sisemist Elementori malli.</td>
+          </tr>
+          <tr>
+            <td><strong>4. GEO (Nähtavus AI-assistentides)</strong></td>
+            <td>
+              <span class="badge-crit">3,5 / 10</span>
+              <div class="score-bar-wrap"><div class="score-bar-fill" style="width:35%; background:#dc2626;"></div></div>
+            </td>
+            <td><span class="badge-target">9,5 / 10</span></td>
+            <td>Tehnilised näitajad (λ<sub>D</sub>, CS(10), paksused) on lukustatud PDF-failidesse. Puuduvad HTML-andmetabelid, <code>Product</code> JSON-LD Schema ja <code>/llms.txt</code>.</td>
+          </tr>
+          <tr>
+            <td><strong>5. Tehnoloogia ja küberturvalisus</strong></td>
+            <td>
+              <span class="badge-crit">4,0 / 10</span>
+              <div class="score-bar-wrap"><div class="score-bar-fill" style="width:40%; background:#d97706;"></div></div>
+            </td>
+            <td><span class="badge-target">9,5 / 10</span></td>
+            <td>7 a vana Elementor (v2.5.4), avalik admin-konto leke (<code>/wp-json/wp/v2/users</code> → <code>andrei@surflink.ee</code>), 6x menüü DOM-is, puudub GDPR küpsiste bänner.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="card-green" style="margin-bottom:0;">
+        <h3 class="sub-title" style="color:var(--brand-green-dark);">Auditi keskne äriline järeldus: Kuidas kasvatada müüki ilma e-poeta?</h3>
+        <p style="font-size:11px; color:var(--slate-800); line-height:1.48;">
+          Ehitusmaterjalide suurtootjana ei konkureeri Estplast oma edasimüüjatega (<strong>Decora, Ehituse ABC, Bauhof, Espak, Ehituskaup24</strong>), vaid loob nõudluse läbi <strong>projekteerimisfaasi ja tehnilise autoriteedi</strong>. Kui arhitekt kirjutab projekti sisse Estplasti sõlmejoonise (DWG 01–16) ja täpse tootekoodi (nt <em>EPS 120 Perimeeter Pluss</em> või <em>EPS 60 Silver Fassaad</em>) ning ehitusjärelevalve ja ekspertiis kasutavad Estplast.ee lehte <strong>ametliku normatiivse tõeallikana</strong>, küsib ehitaja ehituskauplusest just Estplasti toodangut.
+        </p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>ESTPLAST.EE Digitaalne Audit ja Visioon · Koostatud Estplast Tootmine OÜ juhtkonnale</span>
+      <span>Lehekülg 1 / 8</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 2: VISUAL DESIGN & CORPORATE POSITIONING ==================== -->
+  <div class="page">
+    <div class="page-header">
+      <strong>1. Visuaalne Disain, Brändikuvand ja Tootja Positsioneerimine</strong>
+      <span>Estplast Tootmine OÜ · Visuaalse Auditi Süvaanalüüs</span>
+    </div>
+
+    <div class="page-body">
+      <div class="eyebrow">Osa 1 · Korporatiivne identiteet (Skoor: 3,5 / 10)</div>
+      <h2 class="sec-title">Miks 2019. aasta visuaal töötab turuliidri vastu ja kuidas see lahendada?</h2>
+      <p class="lead">
+        Kodulehe esmamulje luuakse 0,05 sekundiga. Praegune <code>estplast.ee</code> kujundus pärineb 2019. aasta märtsist ja sisaldab mitmeid visuaalseid ning koodilisi defekte, mis jätavad Eesti juhtivast EPS-tootjast ja Põhjamaade <strong>Finnfoam OY</strong> kontserni liikmest aegunud mulje.
+      </p>
+
+      <div class="grid-2">
+        <div class="card-red">
+          <h3 class="sub-title" style="color:var(--red-600);">1. Udune rasterlogo (logo.gif) ja 3 korduvat menüüd</h3>
+          <p style="font-size:10.8px; color:var(--slate-700);">
+            Päises kasutatakse madala resolutsiooniga GIF-formaadis logo (<code>/2019/03/logo.gif</code>), millel puudub teravus kaasaegsetel ekraanidel. Samal ajal kuvatakse külastajale <strong>3 erinevat menüüd korraga</strong>: ülemine horisontaalne menüü, vasak külgmenüü ja alumine horisontaalne rida, kus samad lingid (<em>Mis on EPS?</em>, <em>Kasutamine</em>) korduvad.
+          </p>
+        </div>
+
+        <div class="card-red">
+          <h3 class="sub-title" style="color:var(--red-600);">2. Katkine "Vundamendid" kaart avalehel (href="#")</h3>
+          <p style="font-size:10.8px; color:var(--slate-700);">
+            Avalehe keskne visuaalne plokk koosneb 6 konstruktsioonikaardist. Kõige esimene ja äriliselt kriitilisem kaart — <strong>"Vundamendid"</strong> — on seotud tühja ankruga <code>href="#"</code>. Kui projekteerija või tellija sellel klikib, ei juhtu mitte midagi (ehkki leht <code>/est/kasutamine/vundamendid/</code> on serveris tegelikult olemas!).
+          </p>
+        </div>
+
+        <div class="card-red">
+          <h3 class="sub-title" style="color:var(--red-600);">3. Juhuslik stock-foto häkk (couple.png + 250px padding)</h3>
+          <p style="font-size:10.8px; color:var(--slate-700);">
+            Failis <code>post-144.css</code> on vasaku veeru taustaks määratud <code>background-image: url(".../2019/03/couple.png"); padding: 0px 0px 250px 0px;</code>. Selline jäik polsterdus tekitab erinevatel ekraanisuurustel tühja valget ruumi ja lõhub lehe geomeetrilise rütmi.
+          </p>
+        </div>
+
+        <div class="card-red">
+          <h3 class="sub-title" style="color:var(--red-600);">4. Kokkusurutud tüpograafia (letter-spacing: -0.9px)</h3>
+          <p style="font-size:10.8px; color:var(--slate-700);">
+            Et mahutada pikki eestikeelseid ja venekeelseid nimetusi kitsastesse nuppudesse, on CSS-is kasutatud negatiivset tähevahet (<code>letter-spacing: -0.9px</code>). Tulemuseks on raskesti loetav, kokkusurutud tekst, mis mõjub odavalt.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="sub-title" style="margin-top:8px; font-size:15px;">Strateegiline muutus: Põhjamaade tööstusdisain ja selge jaekettide suunamine</h3>
+      <p style="font-size:11.2px; color:var(--slate-700); margin-bottom:10px;">
+        Estplast ei vaja e-poodi ega ostukorvi nuppe, mis tekitaksid kanali-konflikti edasimüüjatega. Selle asemel peab uus disain kandma <strong>kahte selget sõnumit</strong>:
+      </p>
+
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th style="width:24%;">Kujunduselement</th>
+            <th style="width:38%;">Praegune olukord (2019. a veebileht)</th>
+            <th style="width:38%;">Uus Korporatiivne Visioon (Mockup 1–3)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Brändi positsioneering päises ja Hero-plokis</strong></td>
+            <td>Üldsõnaline tekst, udune <code>logo.gif</code>, Finnfoam OY kontserni kuuluvus on peidetud teksti sisse.</td>
+            <td>Terav <strong>SVG vektorlogo</strong>, selge <strong>FINNFOAM OY GROUP</strong> kvaliteedimärk, fookus: <em>"Eesti juhtiv EPS-tootja ja insenertehniline kompetentsikeskus alates 2004"</em>.</td>
+          </tr>
+          <tr>
+            <td><strong>Kvaliteedi ja labori visualiseerimine</strong></td>
+            <td>Unikaalne <strong>Tinius Olsen H5K-T UTM</strong> katseseade on mainitud vaid ühes pikas tekstilõigus lehel "Mis on EPS?".</td>
+            <td>Esile tõstetud usaldusplokk avalehel ja tootelehtedel: <strong>kontroll iga 2h järel</strong>, EVS-EN 13163 vastavus, CE-märgis, tuleklass E.</td>
+          </tr>
+          <tr>
+            <td><strong>Suunamine ostjale (Tootja vs. E-pood)</strong></td>
+            <td>Lehel "Edasimüüjad" on vaid tekstipõhine nimekiri kauplustest ilma visuaalse sidususeta tootelehtedel.</td>
+            <td>Igal tootelehel ja avalehel on selge plokk: <strong>"Kust osta?" → Decora, Ehituse ABC, Bauhof, Espak, Ehituskaup24, K-Rauta</strong> + projektimüügi otsekontakt.</td>
+          </tr>
+          <tr>
+            <td><strong>Navigatsioon ja ruumikasutus</strong></td>
+            <td>3 dubleeritud menüüd võtavad ~35% ekraanipinnast; kitsas sisuveerg.</td>
+            <td><strong>1 ühtne ja puhas päis</strong>, laiekraani (1440px) insenertehniline paigutus koos 3D/CAD ristlõikejoonistega.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="card-dark" style="margin-bottom:0;">
+        <strong style="color:#34d399; font-size:11.5px; display:block; margin-bottom:4px;">MIKS SEE TÕSTAB USALDUST ARHITEKTIDE, JÄRELEVALVE JA SUURTELLIJATE SILMIS?</strong>
+        <p style="font-size:10.8px; color:#e2e8f0; line-height:1.45;">
+          Kui projekteerija, korteriühistu juhatus või riigihanke komisjon võrdleb isolatsioonitootjaid, seostatakse korrastatud, tehniliselt täpset ja kaasaegset veebikeskkonda otseselt <strong>tootmise täpsuse ja tarnekindlusega</strong>. Puhas Põhjamaade tööstusdisain (Estplasti roheline <code>#007548</code> kombineeritud tehnilise tumehalli <code>#0f172a</code> ja selgete joonistega) viib Estplasti digitaalse kuvandi koheselt samale tasemele emafirma Finnfoam OY ja rahvusvaheliste börsikontsernidega.
+        </p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>ESTPLAST.EE Digitaalne Audit ja Visioon · Osa 1: Visuaalne Disain ja Korporatiivne Kuvand</span>
+      <span>Lehekülg 2 / 8</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 3: STRUCTURE, UX & SOURCE OF TRUTH ==================== -->
+  <div class="page">
+    <div class="page-header">
+      <strong>2. Veebilehe Struktuur, Mobiilne UX ja "Source of Truth" Arhitektuur</strong>
+      <span>Estplast Tootmine OÜ · Kasutajakogemuse Audit</span>
+    </div>
+
+    <div class="page-body">
+      <div class="eyebrow">Osa 2 · Infoarhitektuur ja mobiilne ligipääsetavus (Skoor: 4,5 / 10)</div>
+      <h2 class="sec-title">Kuidas teenindada arhitekti, ehitajat, järelevalvet ja ehituseksperti 3 klikiga?</h2>
+      <p class="lead">
+        Estplasti veebilehe külastajad ei otsi meelelahutust — nad otsivad <strong>täpset tehnilist vastust konkreetsele ehituslikule probleemile</strong>. Praegune lehe struktuur sunnib spetsialisti ekslema kolme menüü vahel ning blokeerib mobiilikasutajate ligipääsu tooteandmetele.
+      </p>
+
+      <div class="card-red" style="margin-bottom:14px;">
+        <h3 class="sub-title" style="color:var(--red-600);">Kriitiline UX tõrge: &lt;object type="application/pdf"&gt; lõks kõigil 13 tootelehel</h3>
+        <p style="font-size:11px; color:var(--slate-800); line-height:1.48; margin-bottom:6px;">
+          Kõikidel Estplasti tootelehtedel (<code>/est/tooted/eps60/</code> kuni <code>/est/tooted/eps250perimeeter/</code>) puudub HTML-tekstina esitatud tehniline info. Selle asemel on lehele manustatud PDF-fail koodiga:<br>
+          <code>&lt;object data="/pdf/EPS 60.pdf?rand=9255#toolbar=0&amp;navpanes=0" type="application/pdf" width="100%" height="1130px"&gt;</code>
+        </p>
+        <p style="font-size:10.8px; color:var(--slate-700);">
+          <strong>Tagajärg ehitusplatsil:</strong> Nutitelefonide brauserid (iOS Safari ja Android Chrome) ei renderda <code>&lt;object&gt;</code> PDF-raame, vaid kuvavad ingliskeelse veateate <em>"Oops! Your browser doesn't support PDFs! Download the PDF to view it."</em> Ehitusjärelevalve insener või töödejuhataja peab objektil seistes alla laadima eraldi PDF-faile lihtsalt selleks, et kontrollida plaadi survepinget või paksuste tabelit.
+        </p>
+      </div>
+
+      <h3 class="sub-title" style="font-size:14.5px; margin-bottom:8px;">Uus rollipõhine "Tõeallika" (Source of Truth) infoarhitektuur</h3>
+      <p style="font-size:11px; color:var(--slate-600); margin-bottom:10px;">
+        Uuel platvormil jõuab iga sihtrühm vajaliku infoni otse avalehelt või ühtsest päisest maksimaalselt 1–2 klikiga:
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="eyebrow">Sihtrühm 1 · Projekteerijad &amp; Arhitektid</div>
+          <h3 class="sub-title">CAD / DWG Sõlmejoonised &amp; U-arvu andmed</h3>
+          <p style="font-size:10.6px; color:var(--slate-600); line-height:1.45;">
+            Estplastil on olemas <strong>15 professionaalset DWG ja PDF sõlmejoonist</strong> (alates <em>01 Vundamendi perimeetri horisontaalne soojustus</em> kuni <em>16 Lamekatusega hoone parapeti soojustamine</em>), kuid praegu on need peidetud tekstilinkidena lehele <code>/est/juhendmaterjalid/</code>. Uues vaates (<strong>Mockup 3</strong>) on need filtreeritavad konstruktsiooni järgi koos visuaalse CAD-eelvaatega ja seotud otse vastavate tootelehtedega.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="eyebrow">Sihtrühm 2 · Omanikujärelevalve &amp; Ehitusekspertiis</div>
+          <h3 class="sub-title">Toimivusdeklaratsioonid (DoP) &amp; Vaidluste Lahendamine</h3>
+          <p style="font-size:10.6px; color:var(--slate-600); line-height:1.45;">
+            Ehitusvaidluste, ekspertiiside ja kasutuslubade vormistamisel on vaja ühest allikat: <strong>EVS-EN 13163 normid, kehtivad ja ajaloolised DoP deklaratsioonid</strong>, veeauru difusioonitakistuse (μ) faktid ning selged piirangud (nt miks tavalist <em>EPS 100</em> ei tohi panna märga pinnasesse <em>EPS 120 Perimeeter Pluss</em> asemel).
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="eyebrow">Sihtrühm 3 · Ehitajad &amp; Objektijuhid</div>
+          <h3 class="sub-title">Mobiilisõbralik Pakenditabel &amp; Paigaldusreeglid</h3>
+          <p style="font-size:10.6px; color:var(--slate-600); line-height:1.45;">
+            Iga tooteleht (<strong>Mockup 2</strong>) kuvab HTML-tabelina paksused (25–200 mm), soojapidavuse R<sub>D</sub> (m²K/W), plaatide arvu pakis ning m²/m³ mahud, lisaks paigaldus- ja ladustamisnõuded (nt <em>EPS Silver</em> kaitsmine otsese päikesekiirguse eest).
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="eyebrow">Sihtrühm 4 · Hulgipartnerid, Eksport &amp; Tellijad</div>
+          <h3 class="sub-title">Mitmekeelsus (EST / РУС / ENG) ja Otsekontaktid</h3>
+          <p style="font-size:10.6px; color:var(--slate-600); line-height:1.45;">
+            Praegune keelevahetaja suunab kasutaja alati avalehele (<code>/rus/avaleht/</code>) ning inglise keel puudub täielikult (ehkki koodis on peidetud Läti ja Leedu menüümallid). Uus platvorm seob keelevahetuse täpse alamlehega ja toob nähtavale võtmeisikud (Ferenc Traksler, Kert Prants, Artis Gaujers).
+          </p>
+        </div>
+      </div>
+
+      <table class="audit-table" style="margin-top:4px; margin-bottom:0;">
+        <thead>
+          <tr>
+            <th>Struktuurne probleem praegu</th>
+            <th>Tehniline leid estplast.ee lehel</th>
+            <th>Lahendus uuel platvormil</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Juurkausta ja /est/ konflikt</strong></td>
+            <td>Avaleht on <code>https://estplast.ee/</code>, kuid sisulehed on <code>/est/...</code> all; menüüs viitab "Avaleht" dubleerivale URL-ile.</td>
+            <td>Ühtne URL-struktuur (<code>/et/</code>, <code>/ru/</code>, <code>/en/</code>) koos korrektsete <code>hreflang</code> ja kanooniliste viidetega.</td>
+          </tr>
+          <tr>
+            <td><strong>Peidetud erilahendused (FF-Floor &amp; Warmotech)</strong></td>
+            <td><code>FF-Floor EPS 100S</code> (-25% betoonikulu) ja <code>Warmotech</code> termoprofiilid on peidetud või raskesti leitavad.</td>
+            <td>Tõstetud esile nii tootekataloogis, põranda/fassaadi sõlmedes kui ka inseneri töölaua vaates.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      <span>ESTPLAST.EE Digitaalne Audit ja Visioon · Osa 2: Struktuur ja Kasutajakogemus</span>
+      <span>Lehekülg 3 / 8</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 4: SEO & GEO (AI SEARCH) ==================== -->
+  <div class="page">
+    <div class="page-header">
+      <strong>3. SEO (Google) ja GEO (Nähtavus Tehisintellekti Otsingus)</strong>
+      <span>Estplast Tootmine OÜ · Otsingunähtavuse Audit</span>
+    </div>
+
+    <div class="page-body">
+      <div class="eyebrow">Osa 3 · SEO (3,0 / 10) &amp; GEO / AI-Otsing (3,5 / 10)</div>
+      <h2 class="sec-title">Miks otsingumootorid ja AI-assistendid ei näe praegu Estplasti tooteandmeid?</h2>
+      <p class="lead">
+        Kui projekteerija, ehitusjärelevalve või hankejuht otsib Google'ist või küsib tehisintellektilt (ChatGPT, Perplexity, Google AI) Eesti EPS-soojustusplaatide parameetreid, jääb <code>estplast.ee</code> nähtamatuks nelja fundamentaalse koodivea tõttu.
+      </p>
+
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th style="width:25%;">SEO / GEO Koodiviga</th>
+            <th style="width:37%;">Tõend praegusest lähtekoodist</th>
+            <th style="width:38%;">Mõju otsingunähtavusele ja lahendus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Vale keele atribuut kõigil lehtedel</strong></td>
+            <td>Kõik eestikeelsed ja venekeelsed lehed algavad koodiga:<br><code>&lt;html lang="en-US"&gt;</code></td>
+            <td>Google ja AI-indekseerijad tõlgendavad lehte ingliskeelse lehena, millel on vale keeleline sisu. <strong>Lahendus:</strong> <code>lang="et"</code>, <code>lang="ru"</code>, <code>lang="en"</code> + <code>hreflang</code>.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Täielik <code>&lt;h1&gt;</code> ja meta-kirjelduste puudumine</strong></td>
+            <td>Avalehel ja sisulehtedel on <strong>0 <code>&lt;h1&gt;</code> pealkirja</strong> ning <strong>0 <code>&lt;meta name="description"&gt;</code></strong> märgendit.</td>
+            <td>Otsingumootoril puudub lehe peateema signaal; Google kuvab otsingutulemustes juhuslikke menüütekste. <strong>Lahendus:</strong> Unikaalne <code>&lt;h1&gt;</code> ja meta-kirjeldus igale lehele.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Sisemiste mallide leke XML-sisukaardis</strong></td>
+            <td><code>wp-sitemap-posts-elementor_library-1.xml</code> sisaldab 31 tehnilist malli (nt <code>?elementor_library=logo</code>, <code>nav-left-lat</code>, <code>nav-lit</code>).</td>
+            <td>Google raiskab indekseerimiseelarvet poolikutele menüüribadele ja logodele ("indeksipaisumine"). <strong>Lahendus:</strong> Eemaldada <code>elementor_library</code> ja <code>users</code> sisukaardist (<code>noindex</code>).</td>
+          </tr>
+          <tr>
+            <td><strong>4. Andmete lukustamine PDF-failidesse</strong></td>
+            <td>Tootelehed sisaldavad vaid <code>&lt;object data="/pdf/EPS 100.pdf"&gt;</code> ilma HTML-tekstita.</td>
+            <td>HTML-lehel on ~0 sõna tehnilist sisu. <strong>Lahendus:</strong> Semantilised HTML5 andmetabelid (λ<sub>D</sub>, CS(10), BS, R<sub>D</sub>) otse tootelehel + PDF allalaadimiseks.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="card-dark" style="margin-top:10px; margin-bottom:12px;">
+        <div style="color:#34d399; font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:4px;">
+          UUS KONKURENTSIEELIS 2026: GEO (GENERATIVE ENGINE OPTIMIZATION)
+        </div>
+        <h3 class="sub-title" style="color:var(--white); font-size:15px;">Kuidas muuta Estplast.ee Nr. 1 allikaks, mida ChatGPT, Perplexity ja Google AI tsiteerivad?</h3>
+        <p style="font-size:10.8px; color:#cbd5e1; line-height:1.48; margin-bottom:10px;">
+          Insenerid, arhitektid ja ehituseksperdid kasutavad üha enam AI-assistente küsimusteks nagu: <em>"Millist EPS plaati kasutada vundamendi taldmiku all Eestis?"</em>, <em>"Mis vahe on Estplast EPS 60 Fassaad ja EPS 60 Silver Fassaad plaatidel?"</em> või <em>"Milline on EPS 100 pikaajaline koormustaluvus?"</em>. Et AI tsiteeriks Estplasti kui <strong>ametlikku tõeallikat</strong>, rakendame uuel lehel 4 tehnilist standardit:
+        </p>
+
+        <div class="grid-2" style="gap:10px;">
+          <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:6px; padding:10px 12px;">
+            <strong style="color:#6ee7b7; font-size:11px; display:block;">1. Masinloetavad HTML5 parameetrite tabelid</strong>
+            <span style="font-size:10.2px; color:#e2e8f0;">Kõik 13 EPS toodet + FF-Floor saavad puhta HTML <code>&lt;table&gt;</code> struktuuri koos standardi EVS-EN 13163 koodide, λ<sub>D</sub>, CS(10), WL(T) ja R<sub>D</sub> väärtustega.</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:6px; padding:10px 12px;">
+            <strong style="color:#6ee7b7; font-size:11px; display:block;">2. Schema.org JSON-LD (Product &amp; Organization)</strong>
+            <span style="font-size:10.2px; color:#e2e8f0;">Masinloetav <code>ManufacturingBusiness</code> (Finnfoam OY parentOrganization) ja <code>Product</code> märgendus koos <code>additionalProperty</code> tehniliste parameetritega.</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:6px; padding:10px 12px;">
+            <strong style="color:#6ee7b7; font-size:11px; display:block;">3. Standardiseeritud /llms.txt fail juurkaustas</strong>
+            <span style="font-size:10.2px; color:#e2e8f0;">Spetsiaalne masinloetav koondfail <code>https://estplast.ee/llms.txt</code>, mis annab keelemudelitele täpse ülevaate Estplasti tooteportfellist, DoP linkidest ja edasimüüjatest.</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:6px; padding:10px 12px;">
+            <strong style="color:#6ee7b7; font-size:11px; display:block;">4. Ekspertiisi ja vaidluste ennetamise KKK (FAQ Schema)</strong>
+            <span style="font-size:10.2px; color:#e2e8f0;">Teaduslikult põhjendatud vastused ehitusvaidluste tüüpküsimustele (veeauru difusioon μ, pikaajaline roomavus, krohvifassaadi UV-kaitse, tuleklass E vs B-s1,d0).</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-green" style="margin-bottom:0;">
+        <h3 class="sub-title" style="color:var(--brand-green-dark);">Tulemus: Estplast domineerib nii Google'i otsingus kui ka AI vastustes</h3>
+        <p style="font-size:10.8px; color:var(--slate-800);">
+          Kui iga tooteleht ja konstruktsioonisõlm on varustatud semantilise HTML-i ja struktureeritud andmetega, hakkab <code>estplast.ee</code> ilmuma nr 1 positsioonil kõigi Eesti soojustus- ja ehitusfüüsika märksõnadega — suunates seejärel ostja otse <strong>Decora, Ehituse ABC, Bauhofi, Espaki või Ehituskaup24</strong> kauplustesse.
+        </p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>ESTPLAST.EE Digitaalne Audit ja Visioon · Osa 3: SEO ja Tehisintellekti Otsing (GEO)</span>
+      <span>Lehekülg 4 / 8</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 5: TECH, SECURITY & 3-PHASE ROADMAP ==================== -->
+  <div class="page">
+    <div class="page-header">
+      <strong>4. Tehnoloogia, Turvalisus ja 3-Etapiline Tegevuskava</strong>
+      <span>Estplast Tootmine OÜ · Tehniline Audit ja Teekaart</span>
+    </div>
+
+    <div class="page-body">
+      <div class="eyebrow">Osa 4 · Tehnoloogia ja Küberturvalisus (Skoor: 4,0 / 10)</div>
+      <h2 class="sec-title">Tehnilise võla likvideerimine ja üleminek kaasaegsele platvormile</h2>
+      <p class="lead">
+        Kuigi WordPressi tuum on uuendatud versioonile <code>6.6.11</code>, pärineb veebilehe ehituskiht 2019. aastast ning sisaldab turva- ja jõudlusriske, mis vajavad kohest tähelepanu.
+      </p>
+
+      <div class="grid-2" style="margin-bottom:10px;">
+        <div class="card">
+          <h3 class="sub-title" style="color:var(--red-600);">1. 7 aastat vana Elementor (v2.5.4 / Pro v2.4.7)</h3>
+          <p style="font-size:10.5px; color:var(--slate-600);">
+            Kasutusel on 2019. aasta Elementor koos aegunud teekidega (Font Awesome <code>4.7.0</code>, vana Swiper ja <code>imagesloaded</code>). Nii vanad pistikprogrammid sisaldavad teadaolevaid XSS-haavatavusi ja piiravad PHP uuendamist.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="sub-title" style="color:var(--red-600);">2. Admin-kasutaja leke REST API-s ja sisukaardis</h3>
+          <p style="font-size:10.5px; color:var(--slate-600);">
+            Päring <code>/wp-json/wp/v2/users</code> ja fail <code>wp-sitemap-users-1.xml</code> paljastavad avalikult administraatori konto ID 1 (<code>andrei@surflink.ee</code>, <code>slug: andreisurflink-ee</code>), mis soodustab parooliründeid.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="sub-title" style="color:var(--amber-600);">3. 6-kordne navigatsioonimenüü DOM-koodis</h3>
+          <p style="font-size:10.5px; color:var(--slate-600);">
+            Iga lehe laadimisel saadetakse brauserisse 6 täielikku menüüpuud (3 nähtavat + 3 dubleeritud mobiilimenüüd), mis paisutab HTML DOM-i mahtu.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="sub-title" style="color:var(--amber-600);">4. GDPR küpsiste nõusoleku puudumine</h3>
+          <p style="font-size:10.5px; color:var(--slate-600);">
+            Leht laeb Google Analytics 4 skripti (<code>G-XLWRKJVW4L</code>) kohe ilma kasutaja nõusolekuta ja privaatsustingimuste viiteta.
+          </p>
+        </div>
+      </div>
+
+      <div class="eyebrow" style="margin-top:8px;">Osa 5 · Praktiline Teostusplaan (Roadmap)</div>
+      <h2 class="sec-title" style="margin-bottom:10px;">Tegevuskava 3 etapis: Kiiretest võitudest Nr. 1 eksperdiplatvormini</h2>
+
+      <table class="audit-table" style="margin-bottom:0;">
+        <thead>
+          <tr>
+            <th style="width:18%;">Etapp &amp; Ajakava</th>
+            <th style="width:27%;">Fookus ja Eesmärk</th>
+            <th style="width:55%;">Konkreetsed tegevused ja tulemid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong style="color:var(--red-600); font-size:11.5px;">I ETAPP</strong><br>
+              <span style="font-size:10px; font-weight:700;">Nädalad 1–2<br>(Kiired parandused)</span>
+            </td>
+            <td><strong>Kriitiliste vigade, katkiste linkide ja turvalekete sulgemine</strong></td>
+            <td>
+              • Parandada avalehe <strong>"Vundamendid"</strong> kaardi link (<code>href="#"</code> → <code>/est/kasutamine/vundamendid/</code>).<br>
+              • Muuta <code>&lt;html lang="en-US"&gt;</code> vastavalt keelele (<code>et</code> / <code>ru</code>) ja lisada igale lehele unikaalne <code>&lt;h1&gt;</code> ning <code>meta description</code>.<br>
+              • Eemaldada <code>elementor_library</code> (31 malli) ja <code>users</code> XML-sisukaardist; sulgeda <code>/wp-json/wp/v2/users</code>.<br>
+              • Asendada udune <code>logo.gif</code> terava <strong>SVG vektorlogoga</strong> ja koondada 3 menüüd üheks puhtaks päiseks.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong style="color:var(--amber-600); font-size:11.5px;">II ETAPP</strong><br>
+              <span style="font-size:10px; font-weight:700;">Nädalad 3–6<br>(Kuvand &amp; Tooted)</span>
+            </td>
+            <td><strong>Uus Korporatiivne Avaleht (Mockup 1) ja HTML Tootelehed (Mockup 2)</strong></td>
+            <td>
+              • Avalehe uuendamine Põhjamaade tööstusdisaini tasemele (Finnfoam OY grupp, Tinius Olsen H5K-T UTM katselabori esiletõstmine, interaktiivne hoone soojustusskeem).<br>
+              • Kõigi 13 EPS toote + <code>FF-Floor EPS 100S</code> lehtedel <code>&lt;object&gt;</code> PDF-akende asendamine <strong>mobiilisõbralike HTML5 andmetabelitega</strong> (λ<sub>D</sub>, CS(10), BS, paksused, R<sub>D</sub>, pakenditabel m²/m³) + DoP otseallalaadimine.<br>
+              • Igal tootelehel plokk <strong>"Lubatud vs. Keelatud kasutus"</strong> ja selge suunamine edasimüüjatele (<strong>Decora, Ehituse ABC, Bauhof, Espak, Ehituskaup24</strong>).
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong style="color:var(--brand-green); font-size:11.5px;">III ETAPP</strong><br>
+              <span style="font-size:10px; font-weight:700;">Nädalad 7–10<br>(Eksperdiplatvorm &amp; GEO)</span>
+            </td>
+            <td><strong>Inseneri Töölaud, Ekspertiisikeskus (Mockup 3) ja AI-otsingu (GEO) liidripositsioon</strong></td>
+            <td>
+              • Luua otsitav ja filtreeritav <strong>15 CAD / DWG sõlmejooniste pank</strong> koos visuaalse eelvaatega.<br>
+              • Luua <strong>Ehitusjärelevalve ja Ekspertiisi Teabekeskus</strong>: kehtivate ja ajalooliste Toimivusdeklaratsioonide (DoP) arhiiv kasutuslubadele, ehitusfüüsika (μ-väärtus, niiskusrežiim, tuleohutus) ja Warmotech sõlmed.<br>
+              • Rakendada <code>ManufacturingBusiness</code>, <code>Product</code> ja <code>FAQPage</code> JSON-LD Schema, <code>/llms.txt</code> ning täielik ingliskeelne (<code>ENG</code>) vaade.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      <span>ESTPLAST.EE Digitaalne Audit ja Visioon · Osa 4 &amp; 5: Tehnoloogia ja Tegevuskava</span>
+      <span>Lehekülg 5 / 8</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 6: MOCKUP 1 SHOWCASE (CORPORATE HOMEPAGE) ==================== -->
+  <div class="page">
+    <div class="page-header">
+      <strong>5. Visuaalne Kontseptsioon 1 / 3: Kaasaegne B2B Korporatiivne Avaleht</strong>
+      <span>Täisfail: mockup-1-avaleht-korporatiivne.png (1440px täispikk vaade)</span>
+    </div>
+
+    <div class="page-body" style="padding-top:16px; padding-bottom:14px;">
+      <div class="mockup-showcase-grid">
+        <!-- Embedded Full-Page PNG Screenshot -->
+        <div class="mockup-frame">
+          <div class="mockup-browser-top">
+            <span class="dot" style="background:#ef4444;"></span>
+            <span class="dot" style="background:#f59e0b;"></span>
+            <span class="dot" style="background:#10b981;"></span>
+            <span style="margin-left:8px;">https://estplast.ee/et/ — Kaasaegne Korporatiivne Avaleht (Täispikk vaade)</span>
+          </div>
+          <div class="mockup-img-container">
+            <img src="./mockup-1-avaleht-korporatiivne.png" alt="Mockup 1: Estplast.ee Kaasaegne B2B Korporatiivne Avaleht">
+          </div>
+        </div>
+
+        <!-- Strategic Annotations for Mockup 1 -->
+        <div>
+          <div class="eyebrow">Mockup 1 · Arhitektuuriline Lahendus</div>
+          <h2 class="sec-title" style="font-size:17.5px; margin-bottom:6px;">Turuliidri korporatiivne avaleht ja kiirnavigatsioon</h2>
+          <p style="font-size:10.5px; color:var(--slate-600); margin-bottom:10px; line-height:1.45;">
+            Esimene mockup näitab, kuidas muuta avaleht puhtaks, Põhjamaade tööstusstandardile vastavaks esindusleheks, mis teenindab korraga projekteerijat, järelevalvet ja ehitajat.
+          </p>
+
+          <div class="annotation-step">
+            <strong>1. Ühtne päis ja terav SVG vektorlogo</strong>
+            <p>Kolme dubleeritud menüü asemel on 1 selge navigatsiooniriba, Finnfoam OY kontserni märgis, DoP/DWG kiirviited ja nutikas <code>EST | РУС | ENG</code> keelevahetaja.</p>
+          </div>
+
+          <div class="annotation-step">
+            <strong>2. Autoriteetne Hero-plokk + 3 sihtrühma kiirrada</strong>
+            <p>Selge <code>&lt;h1&gt;</code> sõnumiga, 3 rollipõhise kiirkaardiga (<em>Arhitektile</em>, <em>Järelevalvele/Eksperdile</em>, <em>Ehitajale</em>) ja interaktiivse hoone ristlõikejoonisega.</p>
+          </div>
+
+          <div class="annotation-step">
+            <strong>3. Kõik 6 konstruktsioonikaarti töötavad (sh Vundamendid!)</strong>
+            <p>Parandatud vundamendi kaart + 5 teist konstruktsiooniosa koos soovitatud EPS-markide (CS(10) 60–250 kPa) ja seotud DWG-sõlmede numbritega.</p>
+          </div>
+
+          <div class="annotation-step">
+            <strong>4. Masinloetav 14 toote koondmaatriks otse avalehel</strong>
+            <p>Insener näeb koheselt kõigi 13 EPS-margi + <code>FF-Floor EPS 100S</code> soojusjuhtivust λ<sub>D</sub>, survepinget ja saab 1 klikiga alla laadida DoP PDF-i või DWG-joonise.</p>
+          </div>
+
+          <div class="annotation-step">
+            <strong>5. Tinius Olsen H5K-T UTM labor &amp; Edasimüüjad</strong>
+            <p>Tõstab esile iga 2h tagant tehtava tugevuskontrolli ning suunab ostja selgelt volitatud jaekettidesse (<strong>Decora, Ehituse ABC, Bauhof, Espak, Ehituskaup24</strong>) ja projektimüügi kontaktidele.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>ESTPLAST.EE Digitaalne Audit ja Visioon · Visuaalne Kontseptsioon 1: Korporatiivne Avaleht</span>
+      <span>Lehekülg 6 / 8</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 7: MOCKUP 2 SHOWCASE (ENGINEER PRODUCT PAGE) ==================== -->
+  <div class="page">
+    <div class="page-header">
+      <strong>5. Visuaalne Kontseptsioon 2 / 3: Insenertehniline Tooteleht ("Source of Truth")</strong>
+      <span>Täisfail: mockup-2-tooteleht-insenerile.png (1440px täispikk vaade)</span>
+    </div>
+
+    <div class="page-body" style="padding-top:16px; padding-bottom:14px;">
+      <div class="mockup-showcase-grid">
+        <!-- Embedded Full-Page PNG Screenshot -->
+        <div class="mockup-frame">
+          <div class="mockup-browser-top">
+            <span class="dot" style="background:#ef4444;"></span>
+            <span class="dot" style="background:#f59e0b;"></span>
+            <span class="dot" style="background:#10b981;"></span>
+            <span style="margin-left:8px;">https://estplast.ee/et/tooted/eps-100/ — Insenertehniline Tooteleht (HTML + DoP + DWG)</span>
+          </div>
+          <div class="mockup-img-container">
+            <img src="./mockup-2-tooteleht-insenerile.png" alt="Mockup 2: Estplast.ee Insenertehniline Tooteleht">
+          </div>
+        </div>
+
+        <!-- Strategic Annotations for Mockup 2 -->
+        <div>
+          <div class="eyebrow">Mockup 2 · Tootelehe Reform</div>
+          <h2 class="sec-title" style="font-size:17.5px; margin-bottom:6px;">Katkise PDF-akna asendamine masinloetava insenerivaatega</h2>
+          <p style="font-size:10.5px; color:var(--slate-600); margin-bottom:10px; line-height:1.45;">
+            Teine mockup lahendab praeguse veebilehe suurima tehnilise probleemi (<code>&lt;object&gt;</code> PDF-id) ning teeb tootelehest 100% nutitelefoni-, Google'i- ja AI-sõbraliku teabelehe.
+          </p>
+
+          <div class="annotation-step">
+            <strong>1. Selge EVS-EN 13163 tootekood ja KPI-plokid</strong>
+            <p>Ülaosas on kohe nähtav ametlik standardikood, <code>&lt;h1&gt;</code> pealkiri, võrdluslülitus (<em>EPS 100 Valge vs. EPS 100 Silver Grafiit +20%</em>) ja 4 põhinäitajat (λ<sub>D</sub>, CS(10), pikaajaline koormus 30 kPa, tuleklass E).</p>
+          </div>
+
+          <div class="annotation-step">
+            <strong>2. Ametlik dokumentatsiooni keskus (DoP + DWG)</strong>
+            <p>Paremal ülal on otselingid <strong>Toimivusdeklaratsiooni (DoP PDF)</strong>, tehnilise tootelehe ja seotud DWG sõlmejooniste allalaadimiseks — sobib otse ehitusjärelevalve täitedokumentatsiooni.</p>
+          </div>
+
+          <div class="annotation-step">
+            <strong>3. HTML5 tehniline tabel ja pakendite/soojapidavuse (R<sub>D</sub>) tabel</strong>
+            <p>Kõik näitajad ja paksused (25–200 mm koos R<sub>D</sub> ja m²/m³ pakiandmetega) on puhtas HTML-is — avaneb nutitelefonis ehitusplatsil hetkega ja indekseerub Google'is ning AI-otsingus.</p>
+          </div>
+
+          <div class="annotation-step">
+            <strong>4. "Kus kasutada vs. Kus MITTE kasutada" (Vaidluste ennetus)</strong>
+            <p>Eksperdiplokk hoiatab selgelt vale kasutuse eest (nt miks märjas pinnases tuleb kasutada <em>EPS 120 Perimeeter Pluss</em> plaati ja krohvifassaadil <em>EPS 60 Fassaad</em> plaati).</p>
+          </div>
+
+          <div class="annotation-step">
+            <strong>5. Suunamine edasimüüjatele (Ilma e-poe ostukorvita)</strong>
+            <p>Küljeribal on volitatud edasimüüjad (<strong>Decora, Ehituse ABC, Bauhof, Espak, Ehituskaup24</strong>) ning otsekontakt tehase projektimüügiks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>ESTPLAST.EE Digitaalne Audit ja Visioon · Visuaalne Kontseptsioon 2: Insenertehniline Tooteleht</span>
+      <span>Lehekülg 7 / 8</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 8: MOCKUP 3 SHOWCASE (KNOWLEDGE & EXPERTISE HUB) ==================== -->
+  <div class="page">
+    <div class="page-header">
+      <strong>5. Visuaalne Kontseptsioon 3 / 3: Arhitekti, Järelevalve ja Ekspertiisi Teabekeskus</strong>
+      <span>Täisfail: mockup-3-teadmiste-ja-ekspertiisikeskus.png (1440px täispikk vaade)</span>
+    </div>
+
+    <div class="page-body" style="padding-top:16px; padding-bottom:14px;">
+      <div class="mockup-showcase-grid">
+        <!-- Embedded Full-Page PNG Screenshot -->
+        <div class="mockup-frame">
+          <div class="mockup-browser-top">
+            <span class="dot" style="background:#ef4444;"></span>
+            <span class="dot" style="background:#f59e0b;"></span>
+            <span class="dot" style="background:#10b981;"></span>
+            <span style="margin-left:8px;">https://estplast.ee/et/insenerile/ — CAD/DWG Pank, DoP Arhiiv &amp; Ekspertiisikeskus</span>
+          </div>
+          <div class="mockup-img-container">
+            <img src="./mockup-3-teadmiste-ja-ekspertiisikeskus.png" alt="Mockup 3: Projekteerija, Ehitusjärelevalve ja Ekspertiisi Teabekeskus">
+          </div>
+        </div>
+
+        <!-- Strategic Annotations for Mockup 3 -->
+        <div>
+          <div class="eyebrow">Mockup 3 · Inseneri &amp; Eksperdi Töölaud</div>
+          <h2 class="sec-title" style="font-size:17.5px; margin-bottom:6px;">Eesti #1 EPS-soojustuse teabe- ja ekspertiisikeskus</h2>
+          <p style="font-size:10.5px; color:var(--slate-600); margin-bottom:10px; line-height:1.45;">
+            Kolmas mockup positsioneerib Estplasti vaieldamatuks valdkonna eksperdiks, kelle lehele tulevad arhitektid, omanikujärelevalve ja kohtueksperdid norme ning sõlmi kontrollima.
+          </p>
+
+          <div class="annotation-step">
+            <strong>1. Interaktiivne 15 CAD / DWG sõlmejoonise pank</strong>
+            <p>Kõik Estplasti 15 tüüpsõlme (vundamendid, soklid, SILS krohvifassaadid, aknasõlmed, karkassid, lamekatused) on filtreeritavad, varustatud tehnilise joonise eelvaatega ja allalaaditavad <code>.dwg</code> ning <code>.pdf</code> formaadis.</p>
+          </div>
+
+          <div class="annotation-step">
+            <strong>2. Ehitusvaidluste ja ekspertiisi faktibaas (Faktid vs. Müüdid)</strong>
+            <p>Teaduslikult põhjendatud selgitused veeauru difusioonitakistuse (μ = 20–70), "hingava seina" müüdi, pikaajalise survekoormuse (roomavus &lt;2%) ja tuleohutusklasside (E vs. B-s1,d0) kohta.</p>
+          </div>
+
+          <div class="annotation-step">
+            <strong>3. Ajalooline Toimivusdeklaratsioonide (DoP) arhiiv</strong>
+            <p>Kasutuslubade taotlemisel ja vanemate objektide ekspertiisidel on sageli vaja varasemate aastate sertifikaate. Koondatud DoP arhiiv säästab nii järelevalve kui ka Estplasti müügimeeskonna aega.</p>
+          </div>
+
+          <div class="annotation-step">
+            <strong>4. Warmotech külmasillavabad akna- ja uksesõlmed</strong>
+            <p>Tõstab esile Warmotech termoprofiilid akende paigaldamiseks soojustuskihti (ψ-väärtuste optimeerimine) koos spetsialisti Kert Prantsi otsekontaktiga.</p>
+          </div>
+
+          <div class="card-green" style="margin-top:10px; padding:10px 12px;">
+            <strong style="font-size:10.8px; color:var(--brand-green-dark); display:block;">Kaasasolevad täisresolutsiooniga failid:</strong>
+            <span style="font-size:9.8px; color:var(--slate-700);">
+              • <code>estplast-audit-raport-et.pdf</code> (Käesolev raport)<br>
+              • <code>mockup-1-avaleht-korporatiivne.png</code> (1440px PNG)<br>
+              • <code>mockup-2-tooteleht-insenerile.png</code> (1440px PNG)<br>
+              • <code>mockup-3-teadmiste-ja-ekspertiisikeskus.png</code> (1440px PNG)
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>ESTPLAST.EE Digitaalne Audit ja Visioon · Visuaalne Kontseptsioon 3: Inseneri ja Ekspertiisi Teabekeskus</span>
+      <span>Lehekülg 8 / 8</span>
+    </div>
+  </div>
+
+</body>
+</html>

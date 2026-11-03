@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>Projekteerija, Ehitusjärelevalve ja Ekspertiisi Teabekeskus | Estplast Tootmine OÜ</title>
+  <style>
+    :root {
+      --brand-green: #007548;
+      --brand-green-dark: #005836;
+      --brand-green-light: #e6f4ee;
+      --brand-accent: #10b981;
+      --slate-950: #0b1320;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-300: #cbd5e1;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Roboto', 'Liberation Sans', sans-serif;
+      color: var(--slate-800);
+      background-color: var(--slate-50);
+      line-height: 1.5;
+      width: 1440px;
+      margin: 0 auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .mockup-meta-bar {
+      background: linear-gradient(90deg, #062c1d 0%, #0b1320 100%);
+      color: #a7f3d0;
+      padding: 8px 48px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .mockup-badge {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10b981;
+      color: #ecfdf5;
+      padding: 2px 10px;
+      border-radius: 99px;
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    .utility-bar {
+      background-color: var(--slate-900);
+      color: var(--slate-300);
+      padding: 9px 48px;
+      font-size: 12.5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .main-header {
+      background: var(--white);
+      padding: 16px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .main-nav {
+      display: flex;
+      gap: 18px;
+    }
+    .main-nav a {
+      text-decoration: none;
+      color: var(--slate-700);
+      font-weight: 600;
+      font-size: 13.5px;
+      padding: 4px 0;
+      white-space: nowrap;
+    }
+    .main-nav a.active {
+      color: var(--brand-green);
+      border-bottom: 3px solid var(--brand-green);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 15px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 13px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--brand-green); color: var(--white); }
+    .btn-outline { border: 1.5px solid var(--brand-green); color: var(--brand-green); background: var(--brand-green-light); }
+
+    /* Hub Hero */
+    .hub-hero {
+      background: linear-gradient(135deg, #0b1320 0%, #0f2922 100%);
+      color: var(--white);
+      padding: 44px 48px;
+      border-bottom: 3px solid var(--brand-green);
+    }
+    .hub-hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hub-hero h1 {
+      font-size: 33px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .hub-hero p {
+      font-size: 15.5px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .search-bar-box {
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(52, 211, 153, 0.5);
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #e2e8f0;
+      font-size: 14px;
+    }
+    .search-btn {
+      background: var(--brand-green);
+      color: var(--white);
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .kasutusluba-box {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      border-radius: 10px;
+      padding: 22px;
+    }
+    .kasutusluba-box h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #6ee7b7;
+      margin-bottom: 8px;
+    }
+    .kasutusluba-box p {
+      font-size: 13px;
+      color: #e2e8f0;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    /* Section Container */
+    .section {
+      padding: 44px 48px;
+    }
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 24px;
+    }
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--brand-green);
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+    .section-title {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--slate-900);
+    }
+
+    /* CAD / DWG Interactive Library */
+    .cad-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+    }
+    .cad-preview-card {
+      background: var(--slate-900);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 24px;
+      border: 1px solid var(--slate-700);
+    }
+    .cad-list-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .cad-filter-bar {
+      background: var(--slate-100);
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--slate-200);
+      display: flex;
+      gap: 8px;
+    }
+    .cad-tab {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 4px;
+      background: var(--white);
+      color: var(--slate-700);
+      border: 1px solid var(--slate-300);
+    }
+    .cad-tab.active {
+      background: var(--brand-green);
+      color: var(--white);
+      border-color: var(--brand-green);
+    }
+    table.cad-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.8px;
+    }
+    table.cad-table td {
+      padding: 9.5px 16px;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    table.cad-table tr:nth-child(even) { background: #fcfdfe; }
+    .node-code {
+      font-family: 'DejaVu Sans Mono', monospace;
+      font-weight: 700;
+      color: var(--brand-green-dark);
+      background: var(--brand-green-light);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11.5px;
+    }
+    .dl-pill {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-left: 4px;
+    }
+    .dl-dwg { background: var(--slate-800); color: #38bdf8; }
+    .dl-pdf { background: var(--slate-200); color: var(--slate-800); }
+
+    /* Building Physics & Dispute Resolution Knowledge Base */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .expertise-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-top: 4px solid var(--brand-green);
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    }
+    .expertise-tag {
+      display: inline-block;
+      background: var(--slate-100);
+      color: var(--slate-700);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .expertise-card h3 {
+      font-size: 17.5px;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .expertise-card p {
+      font-size: 13.2px;
+      color: var(--slate-600);
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .fact-callout {
+      background: var(--slate-50);
+      border-left: 3px solid var(--brand-green);
+      padding: 10px 12px;
+      font-size: 12.2px;
+      color: var(--slate-800);
+      font-weight: 600;
+    }
+
+    /* DoP Archive & Warmotech Section */
+    .bottom-split {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+    }
+    .dop-archive-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      padding: 26px;
+    }
+    .warmotech-card {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 26px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Mockup Annotation Bar -->
+  <div class="mockup-meta-bar">
+    <div>
+      <strong>VISUAALNE KONTSEPTSIOON 3 / 3:</strong> ARHITEKTI, EHITUSJÄRELEVALVE JA EKSPERTIISI TEABEKESKUS ("INSENERI TÖÖLAUD")
+    </div>
+    <div class="mockup-badge">Ehitusvaidluste &amp; Järelevalve Tõeallikas · 15 CAD/DWG Sõlme · DoP Arhiiv</div>
+  </div>
+
+  <!-- Utility Bar -->
+  <div class="utility-bar">
+    <div><strong>FINNFOAM OY GROUP</strong> · Estplast Tootmine OÜ · Ametlik Insenertehniline Teabekeskus</div>
+    <div>Tehniline konsultatsioon: <strong>+372 510 0494 (EPS)</strong> · <strong>+372 520 0681 (Warmotech)</strong> · Keel: <strong>EST</strong> | РУС | ENG</div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div>
+      <svg width="190" height="42" viewBox="0 0 210 48" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="4" width="40" height="40" rx="6" fill="#007548"/>
+        <path d="M8 16 H32 M8 24 H26 M8 32 H32" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="31" cy="24" r="3" fill="#34d399"/>
+        <text x="50" y="29" font-family="Roboto, sans-serif" font-size="26" font-weight="900" fill="#0f172a">ESTPLAST</text>
+        <text x="51" y="42" font-family="Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#007548" letter-spacing="1.4">FINNFOAM GROUP · ESTONIA</text>
+      </svg>
+    </div>
+    <nav class="main-nav">
+      <a href="#">Avaleht</a>
+      <a href="#">Tooted (13 marki)</a>
+      <a href="#">Lahendused konstruktsioonile</a>
+      <a href="#" class="active">Projekteerijale &amp; Eksperdile (CAD / DoP)</a>
+      <a href="#">Katselabor &amp; Kvaliteet</a>
+      <a href="#">Edasimüüjad</a>
+    </nav>
+    <div>
+      <a href="#" class="btn btn-primary">Laadi kõik 15 DWG joonist (.zip) ↓</a>
+    </div>
+  </header>
+
+  <!-- Hero Section for Engineers, Supervision & Dispute Experts -->
+  <section class="hub-hero">
+    <div class="hub-hero-grid">
+      <div>
+        <div style="color:#6ee7b7; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px;">
+          INSENERI, OMANIKUJÄRELEVALVE JA EHITUSEKSPERDI TÖÖLAUD
+        </div>
+        <h1>Sõlmejoonised (CAD/DWG), Ehitusfüüsika ja Toimivusdeklaratsioonide (DoP) Pank</h1>
+        <p>
+          Tsentraalne tõeallikas projekteerimiseks, ehitusjärelevalve teostamiseks, kasutuslubade taotlemiseks ning ehitustehniliste ekspertiiside ja vaidluste lahendamiseks vastavalt standardile <strong>EVS-EN 13163</strong>.
+        </p>
+        <div class="search-bar-box">
+          <span>Otsi sõlmejoonist, DoP koodi või märksõna (nt "Sõlm 05 sokkel", "EPS 120 Perimeeter DoP", "kastepunkt")...</span>
+          <span class="search-btn">Otsi andmebaasist</span>
+        </div>
+      </div>
+
+      <div class="kasutusluba-box">
+        <h3>Kasutusloa, järelevalve või ekspertiisi kiirpakett</h3>
+        <p>
+          Vajad täitedokumentatsiooni või vanema objekti (2014–2026) sertifikaate? Laadi alla ametlikud DoP deklaratsioonid ja Tinius Olsen H5K-T UTM katselabori vastavustõendid ühe paketina.
+        </p>
+        <div style="display:flex; gap:10px;">
+          <a href="#" class="btn btn-primary" style="font-size:12.5px; padding:8px 14px;">Ava DoP Arhiiv (2014–2026) →</a>
+          <a href="#" class="btn btn-outline" style="font-size:12.5px; padding:8px 14px; background:transparent; color:#fff; border-color:#6ee7b7;">Küsi eksperthinnangut</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: CAD / DWG Construction Node Bank (All 15 Official Nodes) -->
+  <section class="section">
+    <div class="section-title-row">
+      <div>
+        <div class="section-eyebrow">Ametlikud tüüpsõlmed (.DWG ja .PDF)</div>
+        <h2 class="section-title">1. Projekteerimissõlmede pank (15 kontrollitud sõlmejoonist)</h2>
+      </div>
+      <div style="font-size:13px; color:var(--slate-600);">
+        Ühilduvus: <strong>AutoCAD (.dwg) · ArchiCAD · Revit · PDF vektorgraafika</strong>
+      </div>
+    </div>
+
+    <div class="cad-layout">
+      <!-- Left: Interactive CAD Blueprint Preview -->
+      <div class="cad-preview-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid #334155;">
+          <div>
+            <span style="color:#38bdf8; font-family:monospace; font-size:12px; font-weight:700;">AKTIIVNE EELVAADE: SÕLM 01.DWG</span>
+            <h3 style="font-size:16px; font-weight:800; color:#fff; margin-top:2px;">Vundamendi perimeetri horisontaalne soojustus ja sokkel</h3>
+          </div>
+          <span class="dl-pill dl-dwg" style="padding:6px 12px; font-size:12px;">Laadi 01.dwg ↓</span>
+        </div>
+
+        <!-- Crisp Technical Blueprint SVG -->
+        <svg width="100%" height="285" viewBox="0 0 540 285" xmlns="http://www.w3.org/2000/svg">
+          <rect width="540" height="285" rx="6" fill="#07101e" stroke="#1e293b"/>
+          <!-- Blueprint grid -->
+          <g stroke="#0f233f" stroke-width="1">
+            <line x1="0" y1="50" x2="540" y2="50"/><line x1="0" y1="100" x2="540" y2="100"/>
+            <line x1="0" y1="150" x2="540" y2="150"/><line x1="0" y1="200" x2="540" y2="200"/>
+            <line x1="0" y1="250" x2="540" y2="250"/>
+            <line x1="100" y1="0" x2="100" y2="285"/><line x1="200" y1="0" x2="200" y2="285"/>
+            <line x1="300" y1="0" x2="300" y2="285"/><line x1="400" y1="0" x2="400" y2="285"/>
+          </g>
+          <!-- Exterior Wall + Facade EPS 60 -->
+          <rect x="240" y="20" width="55" height="125" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+          <rect x="205" y="20" width="35" height="125" fill="rgba(16,185,129,0.25)" stroke="#34d399" stroke-width="1.8"/>
+          <!-- Plinth / Foundation wall + EPS 120 Perimeeter -->
+          <rect x="240" y="145" width="55" height="105" fill="#334155" stroke="#cbd5e1" stroke-width="1.5"/>
+          <rect x="210" y="145" width="30" height="95" fill="rgba(56,189,248,0.28)" stroke="#38bdf8" stroke-width="2"/>
+          <!-- Horizontal Frost Wing (EPS 120 Perimeeter Pluss) -->
+          <polygon points="45,215 210,205 210,225 45,235" fill="rgba(56,189,248,0.35)" stroke="#38bdf8" stroke-width="2"/>
+          <!-- Interior Floor Slab + EPS 100 -->
+          <rect x="295" y="145" width="215" height="28" fill="#475569" stroke="#cbd5e1" stroke-width="1.5"/>
+          <rect x="295" y="173" width="215" height="45" fill="rgba(16,185,129,0.3)" stroke="#10b981" stroke-width="1.8"/>
+
+          <!-- Dimension & Callout Lines -->
+          <text x="18" y="192" fill="#38bdf8" font-family="monospace" font-size="10.5" font-weight="700">1. EPS 120 Perimeeter (kalle ≥2%)</text>
+          <text x="18" y="255" fill="#94a3b8" font-family="monospace" font-size="10">Laius L = 1000–1200 mm · Liivapadi</text>
+          <text x="305" y="163" fill="#ffffff" font-family="monospace" font-size="10.5" font-weight="700">2. Raudbetoonplaat ≥ 80–100 mm</text>
+          <text x="305" y="198" fill="#6ee7b7" font-family="monospace" font-size="10.5" font-weight="700">3. EPS 100 (2×100 mm nihutatud)</text>
+          <text x="20" y="65" fill="#34d399" font-family="monospace" font-size="10.5" font-weight="700">4. EPS 60 Fassaad / Silver</text>
+          <line x1="185" y1="62" x2="215" y2="85" stroke="#34d399" stroke-width="1.2"/>
+        </svg>
+
+        <div style="margin-top:14px; font-size:12.5px; color:#cbd5e1; display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+          <div><strong>Külmasilla kontroll:</strong> ψ-väärtus minimeeritud sokli ja põranda liites</div>
+          <div><strong>Nõutav veeimavus pinnases:</strong> WL(T) ≤ 1% (Perimeeter Pluss)</div>
+        </div>
+      </div>
+
+      <!-- Right: Filterable List of Official Estplast Drawings -->
+      <div class="cad-list-card">
+        <div class="cad-filter-bar">
+          <span class="cad-tab active">Kõik sõlmed (15)</span>
+          <span class="cad-tab">Vundament &amp; Sokkel (01–05)</span>
+          <span class="cad-tab">Fassaad &amp; Aknad (06–10)</span>
+          <span class="cad-tab">Põrand &amp; Katus (12–16)</span>
+        </div>
+        <table class="cad-table">
+          <tbody>
+            <tr>
+              <td><span class="node-code">SÕLM 01</span></td>
+              <td><strong>Vundamendi perimeetri horisontaalne soojustus</strong></td>
+              <td style="text-align:right;"><a href="#" class="dl-pill dl-dwg">DWG</a><a href="#" class="dl-pill dl-pdf">PDF</a></td>
+            </tr>
+            <tr>
+              <td><span class="node-code">SÕLM 02</span></td>
+              <td><strong>Lintvundamendi ja põranda soojustamine pinnasel</strong></td>
+              <td style="text-align:right;"><a href="#" class="dl-pill dl-dwg">DWG</a><a href="#" class="dl-pill dl-pdf">PDF</a></td>
+            </tr>
+            <tr>
+              <td><span class="node-code">SÕLM 03</span></td>
+              <td><strong>Plaatvundamendi soojustamine (EPS 100 / 200)</strong></td>
+              <td style="text-align:right;"><a href="#" class="dl-pill dl-dwg">DWG</a><a href="#" class="dl-pill dl-pdf">PDF</a></td>
+            </tr>
+            <tr>
+              <td><span class="node-code">SÕLM 04</span></td>
+              <td><strong>Keldriseina välisperimeetri soojustamine pinnases</strong></td>
+              <td style="text-align:right;"><a href="#" class="dl-pill dl-dwg">DWG</a><a href="#" class="dl-pill dl-pdf">PDF</a></td>
+            </tr>
+            <tr>
+              <td><span class="node-code">SÕLM 05</span></td>
+              <td><strong>Krohvitud fassaadi (SILS) soklisõlm</strong></td>
+              <td style="text-align:right;"><a href="#" class="dl-pill dl-dwg">DWG</a><a href="#" class="dl-pill dl-pdf">PDF</a></td>
+            </tr>
+            <tr>
+              <td><span class="node-code">SÕLM 06–07</span></td>
+              <td><strong>Krohvitud fassaadi akna alumine ja ülemine sõlm</strong></td>
+              <td style="text-align:right;"><a href="#" class="dl-pill dl-dwg">DWG</a><a href="#" class="dl-pill dl-pdf">PDF</a></td>
+            </tr>
+            <tr>
+              <td><span class="node-code">SÕLM 08–09</span></td>
+              <td><strong>Puitkarkass-seina ja tuulduva fassaadi soojustamine</strong></td>
+              <td style="text-align:right;"><a href="#" class="dl-pill dl-dwg">DWG</a><a href="#" class="dl-pill dl-pdf">PDF</a></td>
+            </tr>
+            <tr>
+              <td><span class="node-code">SÕLM 10</span></td>
+              <td><strong>Mitmekihilise tellisseina (kolmekihiline müüritis) soojustamine</strong></td>
+              <td style="text-align:right;"><a href="#" class="dl-pill dl-dwg">DWG</a><a href="#" class="dl-pill dl-pdf">PDF</a></td>
+            </tr>
+            <tr>
+              <td><span class="node-code">SÕLM 12</span></td>
+              <td><strong>Põranda soojustamine pinnasel ja vahelaes</strong></td>
+              <td style="text-align:right;"><a href="#" class="dl-pill dl-dwg">DWG</a><a href="#" class="dl-pill dl-pdf">PDF</a></td>
+            </tr>
+            <tr>
+              <td><span class="node-code">SÕLM 13–14</span></td>
+              <td><strong>Kaldkatuse (sarikate peal/vahel) ja pööningu soojustamine</strong></td>
+              <td style="text-align:right;"><a href="#" class="dl-pill dl-dwg">DWG</a><a href="#" class="dl-pill dl-pdf">PDF</a></td>
+            </tr>
+            <tr>
+              <td><span class="node-code">SÕLM 15–16</span></td>
+              <td><strong>Lamekatuse räästa, parapeti ja fassaadi liitesõlm</strong></td>
+              <td style="text-align:right;"><a href="#" class="dl-pill dl-dwg">DWG</a><a href="#" class="dl-pill dl-pdf">PDF</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Building Physics, Standards & Dispute Prevention (Source of Truth) -->
+  <section class="section" style="padding-top: 0;">
+    <div class="section-title-row">
+      <div>
+        <div class="section-eyebrow">Ehitusfüüsika, normatiivid ja vaidluste lahendamine</div>
+        <h2 class="section-title">2. Ekspertiisi ja ehitusjärelevalve tõeallikas (Faktid vs. Ehitusmüüdid)</h2>
+      </div>
+    </div>
+
+    <div class="expertise-grid">
+      <div class="expertise-card">
+        <span class="expertise-tag">Ehitusfüüsika &amp; Niiskusrežiim</span>
+        <h3>Veeauru difusioonitakistus (μ) ja müüt "hingavast seinast"</h3>
+        <p>
+          Ehitusvaidlustes väidetakse sageli ekslikult, et EPS muudab hoone "kilekotiks". Reaalsuses koosneb EPS <strong>98% ulatuses paigalseisvast õhust</strong> ning selle veeauru difusioonitakistustegur μ = 20–70 on samas suurusjärgus puiduga.
+        </p>
+        <div class="fact-callout">
+          <strong>Eksperdi järeldus:</strong> Hoone sisekliima tagab projekteeritud ventilatsioon, mitte veeauru liikumine läbi välispiirde. EPS ei hallita ega kaota niiskuse toimel soojuspidavust.
+        </div>
+      </div>
+
+      <div class="expertise-card">
+        <span class="expertise-tag">EVS-EN 13163 &amp; Koormusklassid</span>
+        <h3>Survepinge CS(10) vs. pikaajaline koormustaluvus</h3>
+        <p>
+          Projekteerimisel ja järelevalves tuleb eristada lühiajalist survepinget 10% deformatsioonil (CS(10)) ja 50 aasta pikaajalist koormustaluvust (&lt;2% roomavusel), mis on ca <strong>30% nominaalsest CS(10) väärtusest</strong>.
+        </p>
+        <div class="fact-callout">
+          <strong>Näide järelevalvele:</strong> EPS 100 (CS(10) = 100 kPa) pikaajaline lubatud püsikoormus põrandas on 30 kPa (3000 kg/m²). Raskematele vundamentidele vali EPS 150–250.
+        </div>
+      </div>
+
+      <div class="expertise-card">
+        <span class="expertise-tag">Paigaldusreeglid &amp; Tuleohutus</span>
+        <h3>SILS krohvifassaadid, tuleklass E ja UV-kaitse</h3>
+        <p>
+          Kõik Estplasti ehitusplaadid sisaldavad antipüreeni (tuletundlikkuse klass <strong>E</strong> vastavalt EN ISO 11925-2). Krohvitud fassaadisüsteemis (ETICS) saavutab konstruktsioon tuleklassi <strong>B-s1,d0</strong>.
+        </p>
+        <div class="fact-callout">
+          <strong>Järelevalve kontrollpunkt:</strong> Fassaadil on lubatud kasutada ainult stabiliseeritud <strong>EPS 60 Fassaad / Silver Fassaad</strong> plaate. Kolletunud (UV-kahjustusega) plaadipind tuleb enne krohvimist lihvida.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Historical DoP Archive + Warmotech Thermal Profiles -->
+  <section class="section" style="padding-top: 0;">
+    <div class="bottom-split">
+      <div class="dop-archive-card">
+        <div class="section-eyebrow">Kasutuslubade ja ekspertiiside tugi</div>
+        <h3 style="font-size:20px; font-weight:800; color:var(--slate-900); margin-bottom:8px;">3. Toimivusdeklaratsioonide (DoP) ja Sertifikaatide Arhiiv</h3>
+        <p style="font-size:13.5px; color:var(--slate-600); margin-bottom:16px;">
+          Kohene ligipääs kõigile kehtivatele ja ajaloolistele toimivusdeklaratsioonidele (CPR 305/2011 / EVS-EN 13163) täitedokumentatsiooni komplekteerimiseks:
+        </p>
+        <table class="cad-table" style="border:1px solid var(--slate-200);">
+          <tbody>
+            <tr>
+              <td><strong>EPS 60 / EPS 60 Fassaad / Silver</strong></td>
+              <td>EVS-EN 13163 · CE · Tinius Olsen UTM</td>
+              <td style="text-align:right;"><span class="dl-pill dl-dwg" style="background:var(--brand-green); color:#fff;">Laadi DoP (PDF)</span></td>
+            </tr>
+            <tr>
+              <td><strong>EPS 80 / EPS 100 / EPS 100 Silver</strong></td>
+              <td>EVS-EN 13163 · CE · Põrandad &amp; Katused</td>
+              <td style="text-align:right;"><span class="dl-pill dl-dwg" style="background:var(--brand-green); color:#fff;">Laadi DoP (PDF)</span></td>
+            </tr>
+            <tr>
+              <td><strong>EPS 120 / 150 / 200 / 250 Perimeeter</strong></td>
+              <td>EVS-EN 13163 · WL(T) ≤ 1% · Külmakindlus</td>
+              <td style="text-align:right;"><span class="dl-pill dl-dwg" style="background:var(--brand-green); color:#fff;">Laadi DoP (PDF)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Ajaloolised deklaratsioonid (2015–2025)</strong></td>
+              <td>Vanemate ehitusobjektide kasutuslubadele</td>
+              <td style="text-align:right;"><span class="dl-pill dl-pdf">Ava arhiiv →</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="warmotech-card">
+        <div style="color:#34d399; font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.7px; margin-bottom:6px;">
+          Külmasillavabad aknasõlmed (Warmotech)
+        </div>
+        <h3 style="font-size:20px; font-weight:800; margin-bottom:10px;">Warmotech akna- ja ukseprofiilid soojustuskihti paigaldamiseks</h3>
+        <p style="font-size:13.5px; color:#cbd5e1; line-height:1.55; margin-bottom:18px;">
+          Kõrge tihedusega struktuursed termoprofiilid raskete akende ja uste paigaldamiseks otse fassaadi soojustuskihti — elimineerib joonkülmasillad (ψ) ja väldib hallitusriski aknapaledel.
+        </p>
+        <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:8px; padding:14px; font-size:13px;">
+          <strong style="color:#6ee7b7; display:block; margin-bottom:4px;">Tehniline spetsialist (Warmotech &amp; Erisõlmed):</strong>
+          Kert Prants · Tel: +372 520 0681 · E-post: kert@estplast.ee
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

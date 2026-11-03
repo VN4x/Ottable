@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>Estplast Tootmine OÜ | Eesti juhtiv EPS-soojustusmaterjalide tootja ja tehniline teabekeskus</title>
+  <style>
+    :root {
+      --brand-green: #007548;
+      --brand-green-dark: #005836;
+      --brand-green-light: #e6f4ee;
+      --brand-accent: #10b981;
+      --slate-950: #0b1320;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-300: #cbd5e1;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --white: #ffffff;
+      --amber-500: #f59e0b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', 'Liberation Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--slate-800);
+      background-color: var(--white);
+      line-height: 1.5;
+      width: 1440px;
+      margin: 0 auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Concept Banner at very top to frame the mockup */
+    .mockup-meta-bar {
+      background: linear-gradient(90deg, #062c1d 0%, #0b1320 100%);
+      color: #a7f3d0;
+      padding: 8px 48px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+      letter-spacing: 0.3px;
+    }
+    .mockup-meta-bar strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .mockup-badge {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10b981;
+      color: #ecfdf5;
+      padding: 2px 10px;
+      border-radius: 99px;
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    /* Top Utility Bar */
+    .utility-bar {
+      background-color: var(--slate-900);
+      color: var(--slate-300);
+      padding: 10px 48px;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--slate-800);
+    }
+    .utility-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .finnfoam-pill {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-left: 3px solid var(--brand-accent);
+    }
+    .utility-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .utility-right a {
+      color: var(--slate-300);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .lang-switcher {
+      display: inline-flex;
+      background: var(--slate-800);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--slate-700);
+    }
+    .lang-switcher span {
+      padding: 3px 9px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .lang-switcher span.active {
+      background: var(--brand-green);
+      color: var(--white);
+    }
+
+    /* Main Unified Header (Replaces the 3 duplicate menus on current site) */
+    .main-header {
+      background: var(--white);
+      padding: 18px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--slate-200);
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+    }
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-tagline {
+      border-left: 2px solid var(--slate-200);
+      padding-left: 12px;
+      font-size: 11.5px;
+      color: var(--slate-600);
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    .brand-tagline strong {
+      display: block;
+      color: var(--slate-900);
+      font-size: 12px;
+      letter-spacing: 0.1px;
+    }
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .main-nav a {
+      text-decoration: none;
+      color: var(--slate-800);
+      font-weight: 600;
+      font-size: 13.5px;
+      padding: 6px 0;
+      position: relative;
+      white-space: nowrap;
+    }
+    .main-nav a.active {
+      color: var(--brand-green);
+      border-bottom: 3px solid var(--brand-green);
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 13px;
+      text-decoration: none;
+      letter-spacing: 0.1px;
+      white-space: nowrap;
+    }
+    .btn-outline {
+      border: 1.5px solid var(--brand-green);
+      color: var(--brand-green);
+      background: var(--brand-green-light);
+    }
+    .btn-primary {
+      background: var(--brand-green);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(0, 117, 72, 0.25);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0b192c 0%, #0f2922 60%, #073b27 100%);
+      color: var(--white);
+      padding: 64px 48px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.16);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: #6ee7b7;
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 40px;
+      line-height: 1.18;
+      font-weight: 800;
+      margin-bottom: 18px;
+      letter-spacing: -0.4px;
+      color: var(--white);
+    }
+    .hero h1 span {
+      color: #34d399;
+    }
+    .hero-lead {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #cbd5e1;
+      margin-bottom: 28px;
+      max-width: 680px;
+    }
+
+    /* Role-based Fast Track Cards inside Hero */
+    .role-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .role-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      padding: 16px;
+      backdrop-filter: blur(8px);
+    }
+    .role-card-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: #6ee7b7;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .role-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .role-card p {
+      font-size: 12.5px;
+      color: #cbd5e1;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .role-card-link {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #34d399;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Hero Technical Diagram Box */
+    .hero-diagram-card {
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    }
+    .diagram-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .diagram-header h4 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #e2e8f0;
+    }
+    .diagram-badge {
+      background: #007548;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+
+    /* Trust Metrics Bar */
+    .trust-strip {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .trust-metric {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .trust-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #34d399;
+      font-weight: 800;
+      font-size: 15px;
+    }
+    .trust-metric strong {
+      display: block;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .trust-metric span {
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 64px 48px;
+    }
+    .section-alt {
+      background-color: var(--slate-50);
+      border-top: 1px solid var(--slate-200);
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 36px;
+    }
+    .section-eyebrow {
+      color: var(--brand-green);
+      font-size: 12.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--slate-900);
+      letter-spacing: -0.3px;
+    }
+    .section-subtitle {
+      font-size: 15.5px;
+      color: var(--slate-600);
+      max-width: 680px;
+      margin-top: 6px;
+    }
+
+    /* 6 Construction Solutions Grid */
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .solution-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+      display: flex;
+      flex-direction: column;
+    }
+    .solution-card.highlighted {
+      border: 2px solid var(--brand-green);
+      box-shadow: 0 8px 24px rgba(0, 117, 72, 0.1);
+    }
+    .solution-visual {
+      height: 145px;
+      background: var(--slate-900);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      border-bottom: 3px solid var(--brand-green);
+    }
+    .solution-dwg-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(52, 211, 153, 0.5);
+      color: #6ee7b7;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .solution-body {
+      padding: 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .solution-body h3 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin-bottom: 8px;
+    }
+    .solution-body p {
+      font-size: 13.5px;
+      color: var(--slate-600);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .product-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .product-pill {
+      background: var(--brand-green-light);
+      color: var(--brand-green-dark);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 4px;
+    }
+    .solution-footer {
+      padding-top: 12px;
+      border-top: 1px solid var(--slate-100);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand-green);
+    }
+
+    /* Engineering Product Matrix Table (Machine-readable HTML instead of PDF embeds) */
+    .matrix-table-wrap {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+    .matrix-toolbar {
+      background: var(--slate-900);
+      color: var(--white);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .matrix-filters {
+      display: flex;
+      gap: 10px;
+    }
+    .filter-pill {
+      background: rgba(255,255,255,0.1);
+      color: var(--slate-200);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+    .filter-pill.active {
+      background: var(--brand-green);
+      color: var(--white);
+    }
+    table.spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+    table.spec-table th {
+      background: var(--slate-100);
+      color: var(--slate-700);
+      text-align: left;
+      padding: 13px 16px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid var(--slate-200);
+    }
+    table.spec-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--slate-200);
+      color: var(--slate-800);
+    }
+    table.spec-table tr:nth-child(even) {
+      background: #fcfdfe;
+    }
+    .badge-silver, .badge-perimeeter, .badge-white {
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .badge-silver {
+      background: #334155;
+      color: #f8fafc;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .badge-perimeeter {
+      background: #0284c7;
+      color: #ffffff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .badge-white {
+      background: var(--slate-200);
+      color: var(--slate-800);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .doc-links {
+      display: flex;
+      gap: 6px;
+    }
+    .doc-tag {
+      background: var(--slate-100);
+      border: 1px solid var(--slate-300);
+      color: var(--slate-800);
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+    .doc-tag.dop {
+      background: var(--brand-green-light);
+      border-color: #6ee7b7;
+      color: var(--brand-green-dark);
+    }
+
+    /* Lab & Quality Assurance Split Section */
+    .lab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+    .lab-card {
+      background: var(--slate-900);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .lab-card h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+    .lab-card p {
+      color: var(--slate-300);
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .lab-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .lab-spec-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 14px;
+      border-radius: 8px;
+    }
+    .lab-spec-item strong {
+      display: block;
+      color: #34d399;
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+    .lab-spec-item span {
+      font-size: 12.5px;
+      color: var(--slate-300);
+    }
+
+    /* Retail Network Section (Producer vs E-shop positioning) */
+    .retail-box {
+      background: linear-gradient(90deg, var(--brand-green-light) 0%, #f0fdf4 100%);
+      border: 2px solid var(--brand-green);
+      border-radius: 12px;
+      padding: 32px 36px;
+    }
+    .retail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .retail-logos {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+    }
+    .retailer-badge {
+      background: var(--white);
+      border: 1px solid var(--slate-300);
+      border-radius: 8px;
+      padding: 16px 14px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .retailer-badge strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin-bottom: 4px;
+    }
+    .retailer-badge span {
+      font-size: 11.5px;
+      color: var(--brand-green);
+      font-weight: 600;
+    }
+
+    /* Specialist Direct Contacts */
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      padding: 22px;
+      border-top: 4px solid var(--brand-green);
+    }
+    .contact-role {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--brand-green);
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .contact-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin-bottom: 4px;
+    }
+    .contact-desc {
+      font-size: 12.5px;
+      color: var(--slate-600);
+      margin-bottom: 14px;
+    }
+    .contact-meta {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--slate-800);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--slate-950);
+      color: var(--slate-300);
+      padding: 48px 48px 32px;
+      font-size: 13.5px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--slate-800);
+    }
+    .footer h4 {
+      color: var(--white);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 14px;
+    }
+    .footer ul {
+      list-style: none;
+    }
+    .footer ul li {
+      margin-bottom: 8px;
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--slate-500);
+      font-size: 12.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Mockup Annotation Bar -->
+  <div class="mockup-meta-bar">
+    <div>
+      <strong>VISUAALNE KONTSEPTSIOON 1 / 3:</strong> ESTPLAST.EE UUS KORPORATIIVNE B2B AVALEHT (1440px Desktop) — Fookus: Turuliider, Finnfoam Grupp &amp; Insenertehniline Tõeallikas
+    </div>
+    <div class="mockup-badge">Ilma e-poe mürata · 100% Masinloetav (SEO + GEO)</div>
+  </div>
+
+  <!-- Top Corporate Utility Bar -->
+  <div class="utility-bar">
+    <div class="utility-left">
+      <span class="finnfoam-pill">FINNFOAM OY GROUP ETTEVÕTE</span>
+      <span>EVS-EN 13163 Sertifitseeritud EPS-tootmine Maardus alates 2004</span>
+      <span>·</span>
+      <span>Tinius Olsen H5K-T UTM Katselabor</span>
+    </div>
+    <div class="utility-right">
+      <a href="#">Toimivusdeklaratsioonid (DoP)</a>
+      <a href="#">CAD / DWG Sõlmejoonised (15)</a>
+      <a href="#">Volitatud edasimüüjad</a>
+      <span style="color:#34d399; font-weight:700;">Projektimüük: +372 510 0494</span>
+      <div class="lang-switcher">
+        <span class="active">EST</span>
+        <span>РУС</span>
+        <span>ENG</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unified Main Header (Replaces 3 duplicate navigation menus) -->
+  <header class="main-header">
+    <div class="brand-logo-wrap">
+      <!-- Crisp Vector SVG Logo replacing blurry 2019 logo.gif -->
+      <svg width="210" height="48" viewBox="0 0 210 48" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="4" width="40" height="40" rx="6" fill="#007548"/>
+        <path d="M8 16 H32 M8 24 H26 M8 32 H32" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="31" cy="24" r="3" fill="#34d399"/>
+        <text x="50" y="29" font-family="Roboto, sans-serif" font-size="26" font-weight="900" fill="#0f172a" letter-spacing="0.5">ESTPLAST</text>
+        <text x="51" y="42" font-family="Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#007548" letter-spacing="1.4">FINNFOAM GROUP · ESTONIA</text>
+      </svg>
+      <div class="brand-tagline">
+        <strong>Eesti #1 EPS-soojustuse tootja</strong>
+        Insenertehniline teabekeskus
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="#" class="active">Avaleht</a>
+      <a href="#">Tooted (13 marki)</a>
+      <a href="#">Lahendused konstruktsioonile</a>
+      <a href="#">Projekteerijale &amp; Eksperdile</a>
+      <a href="#">Katselabor &amp; Kvaliteet</a>
+      <a href="#">Edasimüüjad</a>
+      <a href="#">Kontakt</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#" class="btn btn-outline">DoP &amp; DWG Pank</a>
+      <a href="#" class="btn btn-primary">Küsi inseneri konsultatsiooni</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">
+          <span>●</span> Ametlik Tehniline Tõeallikas (Source of Truth) · EVS-EN 13163
+        </div>
+        <h1>
+          Eesti juhtiv EPS-soojustusmaterjalide tootja ja <span>insenertehniline kompetentsikeskus</span>
+        </h1>
+        <p class="hero-lead">
+          Estplast Tootmine OÜ (Finnfoam OY grupp) toodab Maardu tehases põhjamaise kliima jaoks sertifitseeritud EPS-soojustusplaate. Siit leiad masinloetavad tehnilised parameetrid, CAD/DWG sõlmejoonised, toimivusdeklaratsioonid (DoP) ja ehitusfüüsikalised juhised projekteerimiseks, ehitusjärelevalveks ning ekspertiisideks.
+        </p>
+
+        <div class="role-cards">
+          <div class="role-card">
+            <div class="role-card-tag">Arhitekt &amp; Projekteerija</div>
+            <h3>CAD / DWG &amp; Parameetrid</h3>
+            <p>15 tüüpsõlme (.dwg / .pdf), U-arvu ja λ<sub>D</sub> andmed, Warmotech termoprofiilid.</p>
+            <span class="role-card-link">Ava DWG jooniste pank →</span>
+          </div>
+          <div class="role-card">
+            <div class="role-card-tag">Järelevalve &amp; Ekspertiis</div>
+            <h3>DoP Arhiiv &amp; Normatiivid</h3>
+            <p>Toimivusdeklaratsioonid, EVS-EN 13163 nõuded, niiskusrežiim ja paigaldusreeglid.</p>
+            <span class="role-card-link">Kontrolli vastavust ja DoP-i →</span>
+          </div>
+          <div class="role-card">
+            <div class="role-card-tag">Ehitaja &amp; Objekti tellija</div>
+            <h3>Tootevalik &amp; Edasimüüjad</h3>
+            <p>Leia õige survepingega EPS (60–250 kPa) ning telli volitatud edasimüüjalt.</p>
+            <span class="role-card-link">Vali toode ja edasimüüja →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Architectural Cross-Section SVG Diagram -->
+      <div class="hero-diagram-card">
+        <div class="diagram-header">
+          <h4>Hoone terviklik soojustusskeem (Estplast EPS süsteem)</h4>
+          <span class="diagram-badge">EVS-EN 13163</span>
+        </div>
+        <svg width="100%" height="310" viewBox="0 0 520 310" xmlns="http://www.w3.org/2000/svg">
+          <rect width="520" height="310" rx="8" fill="#0b1320"/>
+          <!-- Grid lines -->
+          <g stroke="#1e293b" stroke-width="1">
+            <line x1="0" y1="60" x2="520" y2="60"/>
+            <line x1="0" y1="120" x2="520" y2="120"/>
+            <line x1="0" y1="180" x2="520" y2="180"/>
+            <line x1="0" y1="240" x2="520" y2="240"/>
+            <line x1="130" y1="0" x2="130" y2="310"/>
+            <line x1="260" y1="0" x2="260" y2="310"/>
+            <line x1="390" y1="0" x2="390" y2="310"/>
+          </g>
+          <!-- Ground line -->
+          <line x1="20" y1="215" x2="500" y2="215" stroke="#10b981" stroke-width="2" stroke-dasharray="6,4"/>
+          <text x="26" y="208" fill="#6ee7b7" font-size="10" font-weight="700">MAAPINNA TASE (±0.00)</text>
+
+          <!-- House Schematic Cross Section -->
+          <!-- Roof -->
+          <polygon points="110,85 250,30 390,85" fill="#1e293b" stroke="#34d399" stroke-width="2.5"/>
+          <polygon points="122,85 250,38 378,85" fill="#007548" opacity="0.65"/>
+          <!-- Walls -->
+          <rect x="125" y="85" width="250" height="130" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+          <!-- Exterior Facade Insulation Highlight -->
+          <rect x="115" y="85" width="10" height="130" fill="#34d399"/>
+          <rect x="375" y="85" width="10" height="130" fill="#34d399"/>
+          <!-- Floor Slab + FF-Floor Insulation -->
+          <rect x="125" y="195" width="250" height="20" fill="#059669"/>
+          <!-- Foundation & Perimeter Insulation -->
+          <rect x="105" y="215" width="20" height="65" fill="#0284c7"/>
+          <rect x="375" y="215" width="20" height="65" fill="#0284c7"/>
+          <rect x="70" y="220" width="35" height="10" fill="#38bdf8"/>
+          <rect x="395" y="220" width="35" height="10" fill="#38bdf8"/>
+          <rect x="125" y="260" width="250" height="20" fill="#0369a1" opacity="0.8"/>
+
+          <!-- Callout 1: Katus -->
+          <rect x="14" y="22" width="155" height="44" rx="5" fill="#1e293b" stroke="#34d399" stroke-width="1.2"/>
+          <text x="22" y="38" fill="#ffffff" font-size="11" font-weight="700">1. Katused &amp; Katuslaed</text>
+          <text x="22" y="54" fill="#6ee7b7" font-size="10">EPS 60 Silver / EPS 80 / 100</text>
+          <line x1="169" y1="44" x2="215" y2="54" stroke="#34d399" stroke-width="1.5"/>
+
+          <!-- Callout 2: Fassaad -->
+          <rect x="345" y="96" width="162" height="48" rx="5" fill="#1e293b" stroke="#34d399" stroke-width="1.2"/>
+          <text x="353" y="112" fill="#ffffff" font-size="11" font-weight="700">2. Fassaad &amp; Aknasõlmed</text>
+          <text x="353" y="126" fill="#6ee7b7" font-size="10">EPS 60 Fassaad / Silver</text>
+          <text x="353" y="138" fill="#cbd5e1" font-size="9.5">λD = 0,031–0,039 W/mK</text>
+
+          <!-- Callout 3: Põrand -->
+          <rect x="155" y="132" width="175" height="48" rx="5" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+          <text x="165" y="148" fill="#ffffff" font-size="11" font-weight="700">3. Põrandad &amp; Vundamendiplaat</text>
+          <text x="165" y="162" fill="#34d399" font-size="10">EPS 100 / FF-Floor 100S</text>
+          <text x="165" y="174" fill="#cbd5e1" font-size="9.5">CS(10) ≥ 100 kPa · Sõlm DWG 01–03</text>
+
+          <!-- Callout 4: Perimeeter & Vundament -->
+          <rect x="14" y="242" width="215" height="54" rx="5" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+          <text x="22" y="258" fill="#ffffff" font-size="11" font-weight="700">4. Vundament, Sokkel &amp; Külmakerge</text>
+          <text x="22" y="272" fill="#38bdf8" font-size="10">EPS 120 / 150 / 200 / 250 Perimeeter</text>
+          <text x="22" y="286" fill="#cbd5e1" font-size="9.5">Veeimavus WL(T) ≤ 1% · Poolpunnsoon</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Trust Metrics Strip -->
+    <div class="trust-strip">
+      <div class="trust-metric">
+        <div class="trust-icon">20+</div>
+        <div>
+          <strong>Aastat tootmist Eestis</strong>
+          <span>Tegutseb Maardus alates 2004, Soome Finnfoam OY kontsernis alates 2018</span>
+        </div>
+      </div>
+      <div class="trust-metric">
+        <div class="trust-icon">2h</div>
+        <div>
+          <strong>Laborikontroll iga 2h järel</strong>
+          <span>Eestis unikaalne Tinius Olsen H5K-T UTM katseseade igale tootepartiile</span>
+        </div>
+      </div>
+      <div class="trust-metric">
+        <div class="trust-icon">15</div>
+        <div>
+          <strong>CAD / DWG tüüpsõlme</strong>
+          <span>Valmis projekteerimissõlmed (.dwg ja .pdf) vundamendist lamekatuseni</span>
+        </div>
+      </div>
+      <div class="trust-metric">
+        <div class="trust-icon">CE</div>
+        <div>
+          <strong>EVS-EN 13163 &amp; DoP</strong>
+          <span>Ametlikud toimivusdeklaratsioonid ehitusjärelevalvele ja ekspertiisidele</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: Vali lahendus konstruktsiooni järgi (All 6 cards active & functional) -->
+  <section class="section">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Rakenduspõhine insenerijuhis</div>
+        <h2 class="section-title">Vali soojustuslahendus hoone konstruktsiooni järgi</h2>
+        <p class="section-subtitle">
+          Iga konstruktsiooniosa nõuab kindlat survepinget CS(10), niiskuskindlust ja soojusjuhtivust λ<sub>D</sub>. Vali sõlm, et näha sobivaid EPS-tooteid, DWG-jooniseid ja paigaldusnõudeid.
+        </p>
+      </div>
+      <a href="#" class="btn btn-outline">Vaata kõiki 15 DWG sõlmejoonist →</a>
+    </div>
+
+    <div class="solutions-grid">
+      <!-- Card 1: Vundamendid (Explicitly fixed from broken href="#") -->
+      <div class="solution-card highlighted">
+        <div class="solution-visual">
+          <span class="solution-dwg-tag">DWG Sõlmed 01–04</span>
+          <svg width="180" height="90" viewBox="0 0 180 90">
+            <rect x="20" y="55" width="140" height="22" fill="#0284c7" rx="2"/>
+            <rect x="45" y="15" width="22" height="40" fill="#38bdf8"/>
+            <rect x="67" y="15" width="75" height="40" fill="#334155"/>
+            <line x1="10" y1="35" x2="45" y2="35" stroke="#34d399" stroke-width="3"/>
+            <text x="76" y="40" fill="#fff" font-size="11" font-weight="700">CS(10) 120–250 kPa</text>
+          </svg>
+        </div>
+        <div class="solution-body">
+          <div>
+            <h3>1. Vundamendid, soklid ja keldriseinad</h3>
+            <p>Suure koormustaluvuse ja minimaalse veeimavusega (WL(T) ≤ 1%) niiskus- ja külmakindlad plaadid pinnasesse, soklitele ja vundamendi taldmiku alla.</p>
+            <div class="product-pills">
+              <span class="product-pill">EPS 120 Perimeeter Pluss / W</span>
+              <span class="product-pill">EPS 150 Perimeeter Pluss</span>
+              <span class="product-pill">EPS 200 / 250 Perimeeter</span>
+            </div>
+          </div>
+          <div class="solution-footer">
+            <span>Ava vundamendi sõlmed ja koormustabel</span>
+            <span>→</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Põrandad -->
+      <div class="solution-card">
+        <div class="solution-visual">
+          <span class="solution-dwg-tag">DWG Sõlmed 01–03, 12</span>
+          <svg width="180" height="90" viewBox="0 0 180 90">
+            <rect x="20" y="25" width="140" height="16" fill="#64748b"/>
+            <rect x="20" y="41" width="140" height="28" fill="#007548"/>
+            <circle cx="45" cy="33" r="3" fill="#f59e0b"/>
+            <circle cx="75" cy="33" r="3" fill="#f59e0b"/>
+            <circle cx="105" cy="33" r="3" fill="#f59e0b"/>
+            <circle cx="135" cy="33" r="3" fill="#f59e0b"/>
+            <text x="42" y="60" fill="#fff" font-size="11" font-weight="700">EPS 100 / FF-Floor 100S</text>
+          </svg>
+        </div>
+        <div class="solution-body">
+          <div>
+            <h3>2. Põrandad pinnasel ja vahelaed</h3>
+            <p>Betoonpõrandate, põrandakütte ja suurte koormustega tööstuspõrandate soojustamine. Erilahendus FF-Floor vähendab betoonikulu 25%.</p>
+            <div class="product-pills">
+              <span class="product-pill">EPS 80</span>
+              <span class="product-pill">EPS 100</span>
+              <span class="product-pill">EPS 100 Silver</span>
+              <span class="product-pill">FF-Floor EPS 100S</span>
+            </div>
+          </div>
+          <div class="solution-footer">
+            <span>Vaata põrandasõlmi ja paksusi</span>
+            <span>→</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Fassaadid -->
+      <div class="solution-card">
+        <div class="solution-visual">
+          <span class="solution-dwg-tag">DWG Sõlmed 05–10</span>
+          <svg width="180" height="90" viewBox="0 0 180 90">
+            <rect x="45" y="12" width="45" height="66" fill="#475569"/>
+            <rect x="90" y="12" width="32" height="66" fill="#10b981"/>
+            <rect x="122" y="12" width="6" height="66" fill="#e2e8f0"/>
+            <text x="52" y="48" fill="#fff" font-size="10" font-weight="700">Müüritis</text>
+            <text x="93" y="48" fill="#0b1320" font-size="10" font-weight="800">EPS 60</text>
+          </svg>
+        </div>
+        <div class="solution-body">
+          <div>
+            <h3>3. Krohvitavad ja tuulduvad fassaadid</h3>
+            <p>Mõõdutäpsed fassaadiplaadid SILS (ETICS) krohvisüsteemidele. Grafiidilisandiga EPS 60 Silver Fassaad tagab 20% parema soojuspidavuse.</p>
+            <div class="product-pills">
+              <span class="product-pill">EPS 60 Fassaad</span>
+              <span class="product-pill">EPS 60 Silver Fassaad</span>
+              <span class="product-pill">Warmotech aknaprofiil</span>
+            </div>
+          </div>
+          <div class="solution-footer">
+            <span>Ava fassaadi- ja aknasõlmed</span>
+            <span>→</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Katused -->
+      <div class="solution-card">
+        <div class="solution-visual">
+          <span class="solution-dwg-tag">DWG Sõlmed 13–16</span>
+          <svg width="180" height="90" viewBox="0 0 180 90">
+            <polygon points="20,65 160,65 160,30 20,45" fill="#007548"/>
+            <line x1="20" y1="45" x2="160" y2="30" stroke="#34d399" stroke-width="3"/>
+            <text x="45" y="58" fill="#fff" font-size="11" font-weight="700">Kaldega EPS + Katuseplaat</text>
+          </svg>
+        </div>
+        <div class="solution-body">
+          <div>
+            <h3>4. Lamekatused, kaldkatused ja pööningud</h3>
+            <p>Kerge kaaluga ja suure survetugevusega soojustus lamekatuste põhikihiks ning kallete ehitamiseks vastavalt projektile.</p>
+            <div class="product-pills">
+              <span class="product-pill">EPS 60 / 60 Silver</span>
+              <span class="product-pill">EPS 80</span>
+              <span class="product-pill">EPS 100 / 100 Silver</span>
+            </div>
+          </div>
+          <div class="solution-footer">
+            <span>Vaata lame- ja viilkatuse sõlmi</span>
+            <span>→</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Karkassid -->
+      <div class="solution-card">
+        <div class="solution-visual">
+          <span class="solution-dwg-tag">DWG Sõlmed 08–09, 13</span>
+          <svg width="180" height="90" viewBox="0 0 180 90">
+            <rect x="25" y="20" width="130" height="50" fill="#0f766e"/>
+            <rect x="25" y="20" width="14" height="50" fill="#d97706"/>
+            <rect x="83" y="20" width="14" height="50" fill="#d97706"/>
+            <rect x="141" y="20" width="14" height="50" fill="#d97706"/>
+            <text x="44" y="48" fill="#fff" font-size="10" font-weight="700">EPS</text>
+            <text x="102" y="48" fill="#fff" font-size="10" font-weight="700">EPS</text>
+          </svg>
+        </div>
+        <div class="solution-body">
+          <div>
+            <h3>5. Puit- ja metallkarkasskonstruktsioonid</h3>
+            <p>Vajumiskindel ja kõrge veeauru difusioonitakistusega soojustus karkass-seintele, põrandatele ja lagedele.</p>
+            <div class="product-pills">
+              <span class="product-pill">EPS 60</span>
+              <span class="product-pill">EPS 60 Silver</span>
+              <span class="product-pill">EPS 80</span>
+            </div>
+          </div>
+          <div class="solution-footer">
+            <span>Ava karkass-seina juhised</span>
+            <span>→</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Tehnovõrgud -->
+      <div class="solution-card">
+        <div class="solution-visual">
+          <span class="solution-dwg-tag">Taristu &amp; Trassid</span>
+          <svg width="180" height="90" viewBox="0 0 180 90">
+            <rect x="35" y="25" width="110" height="12" fill="#0284c7"/>
+            <rect x="35" y="25" width="12" height="35" fill="#0284c7"/>
+            <rect x="133" y="25" width="12" height="35" fill="#0284c7"/>
+            <circle cx="72" cy="52" r="11" fill="#475569" stroke="#38bdf8" stroke-width="2"/>
+            <circle cx="108" cy="52" r="11" fill="#475569" stroke="#38bdf8" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="solution-body">
+          <div>
+            <h3>6. Tehnovõrgud, teed ja külmakerke kaitse</h3>
+            <p>Vee- ja kanalisatsioonitrasside, teede, parklate, raudteetammide ja külmhoonete pinnase külmakerke isoleerimine.</p>
+            <div class="product-pills">
+              <span class="product-pill">EPS 120 Perimeeter</span>
+              <span class="product-pill">EPS 150 / 200 Perimeeter</span>
+              <span class="product-pill">EPS 250 Perimeeter</span>
+            </div>
+          </div>
+          <div class="solution-footer">
+            <span>Vaata trasside koormusklasse</span>
+            <span>→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Machine-Readable Technical Product Matrix (Replaces hidden <object> PDFs) -->
+  <section class="section section-alt">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Masinloetav Tehniline Andmebaas (HTML + JSON-LD)</div>
+        <h2 class="section-title">Estplasti EPS-soojustusplaatide koondtabel insenerile</h2>
+        <p class="section-subtitle">
+          Kõik tehnilised parameetrid on otse lehel loetavad nii nutitelefonis ehitusplatsil kui ka projekteerimistarkvaras — ilma mobiilis mittetöötavate PDF-raamideta.
+        </p>
+      </div>
+      <div class="header-actions">
+        <a href="#" class="btn btn-outline">Laadi alla kogu tootekataloog (PDF)</a>
+        <a href="#" class="btn btn-primary">Ava paksuse ja koguse kalkulaator</a>
+      </div>
+    </div>
+
+    <div class="matrix-table-wrap">
+      <div class="matrix-toolbar">
+        <div style="font-weight:700; font-size:14px;">Kiirfilter kasutusala ja materjalitüübi järgi (14 toodet):</div>
+        <div class="matrix-filters">
+          <span class="filter-pill active">Kõik tooted (14)</span>
+          <span class="filter-pill">Fassaadid (2)</span>
+          <span class="filter-pill">Põrandad &amp; Katused (6)</span>
+          <span class="filter-pill">EPS Silver +20% (3)</span>
+          <span class="filter-pill">Perimeeter / Vundament (6)</span>
+        </div>
+      </div>
+
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Toote nimetus</th>
+            <th>Tüüp / Seeria</th>
+            <th>Soojusjuhtivus λ<sub>D</sub></th>
+            <th>Survepinge CS(10)</th>
+            <th>Paindetugevus BS</th>
+            <th>Servatüüp &amp; Mõõt (mm)</th>
+            <th>Peamine kasutusala</th>
+            <th>Dokumendid (Otseallalaadimine)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>EPS 60</strong></td>
+            <td><span class="badge-white">Valge EPS</span></td>
+            <td><strong>0,039 W/mK</strong></td>
+            <td>≥ 60 kPa</td>
+            <td>≥ 100 kPa</td>
+            <td>Sirge · 1000×1200 / 600×1200</td>
+            <td>Karkassid, kaldkatused, pööningud</td>
+            <td class="doc-links"><span class="doc-tag dop">DoP PDF</span><span class="doc-tag">Andmeleht</span><span class="doc-tag">DWG</span></td>
+          </tr>
+          <tr>
+            <td><strong>EPS 60 Fassaad</strong></td>
+            <td><span class="badge-white">Fassaad SILS</span></td>
+            <td><strong>0,039 W/mK</strong></td>
+            <td>≥ 60 kPa</td>
+            <td>≥ 100 kPa</td>
+            <td>Sirge · 600×1000</td>
+            <td>Krohvitavad fassaadisüsteemid (ETICS)</td>
+            <td class="doc-links"><span class="doc-tag dop">DoP PDF</span><span class="doc-tag">Andmeleht</span><span class="doc-tag">DWG 05-07</span></td>
+          </tr>
+          <tr>
+            <td><strong>EPS 60 Silver</strong></td>
+            <td><span class="badge-silver">Grafiit +20%</span></td>
+            <td><strong>0,031 W/mK</strong></td>
+            <td>≥ 60 kPa</td>
+            <td>≥ 100 kPa</td>
+            <td>Sirge · 1000×1200 / 600×1200</td>
+            <td>Madalenergiahoonete seinad ja katused</td>
+            <td class="doc-links"><span class="doc-tag dop">DoP PDF</span><span class="doc-tag">Andmeleht</span><span class="doc-tag">DWG</span></td>
+          </tr>
+          <tr>
+            <td><strong>EPS 60 Silver Fassaad</strong></td>
+            <td><span class="badge-silver">Grafiit Fassaad</span></td>
+            <td><strong>0,031 W/mK</strong></td>
+            <td>≥ 60 kPa</td>
+            <td>≥ 100 kPa</td>
+            <td>Sirge · 600×1000</td>
+            <td>Õhukese kihiga maksimaalne fassaadisoojustus</td>
+            <td class="doc-links"><span class="doc-tag dop">DoP PDF</span><span class="doc-tag">Andmeleht</span><span class="doc-tag">DWG 05-07</span></td>
+          </tr>
+          <tr>
+            <td><strong>EPS 80</strong></td>
+            <td><span class="badge-white">Valge EPS</span></td>
+            <td><strong>0,037 W/mK</strong></td>
+            <td>≥ 80 kPa</td>
+            <td>≥ 125 kPa</td>
+            <td>Sirge · 1000×1200</td>
+            <td>Elamute põrandad, lamekatused, vahelaed</td>
+            <td class="doc-links"><span class="doc-tag dop">DoP PDF</span><span class="doc-tag">Andmeleht</span><span class="doc-tag">DWG 12-16</span></td>
+          </tr>
+          <tr>
+            <td><strong>EPS 100</strong></td>
+            <td><span class="badge-white">Valge EPS</span></td>
+            <td><strong>0,036 W/mK</strong></td>
+            <td>≥ 100 kPa</td>
+            <td>≥ 150 kPa</td>
+            <td>Sirge · 1000×1200</td>
+            <td>Koormatud betoonpõrandad, lamekatused</td>
+            <td class="doc-links"><span class="doc-tag dop">DoP PDF</span><span class="doc-tag">Andmeleht</span><span class="doc-tag">DWG 01-03</span></td>
+          </tr>
+          <tr>
+            <td><strong>EPS 100 Silver</strong></td>
+            <td><span class="badge-silver">Grafiit +20%</span></td>
+            <td><strong>0,030 W/mK</strong></td>
+            <td>≥ 100 kPa</td>
+            <td>≥ 150 kPa</td>
+            <td>Sirge · 1000×1200</td>
+            <td>Põrandaküttega A-energiaklassi põrandad</td>
+            <td class="doc-links"><span class="doc-tag dop">DoP PDF</span><span class="doc-tag">Andmeleht</span><span class="doc-tag">DWG 01-03</span></td>
+          </tr>
+          <tr>
+            <td><strong>FF-Floor EPS 100S</strong></td>
+            <td><span class="badge-silver">3D Valuvorm</span></td>
+            <td><strong>0,036 W/mK</strong></td>
+            <td>≥ 100 kPa</td>
+            <td>≥ 150 kPa</td>
+            <td>50mm sooned · 600×1200×200</td>
+            <td>Betoonikulu -25% vähendav põrandasüsteem</td>
+            <td class="doc-links"><span class="doc-tag dop">DoP PDF</span><span class="doc-tag">Paigaldus</span><span class="doc-tag">BIM</span></td>
+          </tr>
+          <tr>
+            <td><strong>EPS 120 Perimeeter Pluss / W</strong></td>
+            <td><span class="badge-perimeeter">Niiskuskindel ≤1%</span></td>
+            <td><strong>0,034 W/mK</strong></td>
+            <td>≥ 120 kPa</td>
+            <td>≥ 170 kPa</td>
+            <td>Poolpunnsoon (Pluss) / Sirge (W)</td>
+            <td>Soklid, vundamendid, külmakerke kaitse</td>
+            <td class="doc-links"><span class="doc-tag dop">DoP PDF</span><span class="doc-tag">Andmeleht</span><span class="doc-tag">DWG 01-04</span></td>
+          </tr>
+          <tr>
+            <td><strong>EPS 150 / 200 / 250 Perimeeter</strong></td>
+            <td><span class="badge-perimeeter">Raskekoormus ≤1%</span></td>
+            <td><strong>0,033–0,034 W/mK</strong></td>
+            <td>≥ 150–250 kPa</td>
+            <td>≥ 200–350 kPa</td>
+            <td>Poolpunnsoon / Sirge · 600×1200</td>
+            <td>Vundamendi taldmiku alune, teed, parklad, tööstus</td>
+            <td class="doc-links"><span class="doc-tag dop">DoP PDF</span><span class="doc-tag">Andmeleht</span><span class="doc-tag">DWG 01-04</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 3: Lab & Technical Authority (Source of Truth Positioning) -->
+  <section class="section">
+    <div class="lab-grid">
+      <div class="lab-card">
+        <div class="hero-eyebrow" style="margin-bottom:14px;">Kvaliteedigarantii Maardu tehasest</div>
+        <h3>Tinius Olsen H5K-T UTM Katselabor — Teaduslikult tõestatud tugevus</h3>
+        <p>
+          Ehituskonstruktsioonide ohutus algab materjali tegelikust survetugevusest. Estplasti Maardu tehases kontrollitakse toodangut <strong>iga 2 tunni järel</strong> Eestis unikaalsel <strong>Tinius Olsen H5K-T UTM</strong> universaalsel testimisseadmel vastavalt Euroopa standardile <strong>EVS-EN 13163</strong>.
+        </p>
+        <div class="lab-specs">
+          <div class="lab-spec-item">
+            <strong>Iga 2 tunni järel</strong>
+            <span>Pidev partiipõhine survepinge CS(10) ja paindetugevuse BS mõõtmine</span>
+          </div>
+          <div class="lab-spec-item">
+            <strong>-200 °C kuni +85 °C</strong>
+            <span>Temperatuuritaluvus ja stabiilne mõõdupüsivus Põhjamaade kliimas</span>
+          </div>
+          <div class="lab-spec-item">
+            <strong>Tuleklass E</strong>
+            <span>Süttimisvastase lisandiga (antipüreen) vastavalt EN ISO 11925-2</span>
+          </div>
+          <div class="lab-spec-item">
+            <strong>98% õhk / 2% polüstüreen</strong>
+            <span>Freoone mittesisaldav, 100% taaskasutatav ja keskkonnaohutu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lab-card" style="background: linear-gradient(135deg, #005836 0%, #062c1d 100%);">
+        <div class="hero-eyebrow" style="margin-bottom:14px; background:rgba(255,255,255,0.12); color:#fff;">Ehitusjärelevalve &amp; Ekspertiiside Tugi</div>
+        <h3>Ametlik tõeallikas ehitusvaidluste ennetamiseks ja lahendamiseks</h3>
+        <p>
+          Oleme loonud arhitektidele, omanikujärelevalvele ja ehitusekspertidele tsentraalse teabebaasi, mis aitab vältida projekteerimis- ja paigaldusvigu ning lahendada vaidlusi faktipõhiselt:
+        </p>
+        <ul style="list-style:none; display:grid; gap:12px; margin-bottom:22px; font-size:14px; color:#e2e8f0;">
+          <li>✓ <strong>Toimivusdeklaratsioonide (DoP) arhiiv:</strong> Kehtivad ja ajaloolised deklaratsioonid objektide dokumenteerimiseks ja täitedokumentatsiooniks.</li>
+          <li>✓ <strong>Ehitusfüüsika ja niiskusrežiim:</strong> Teaduslikud selgitused veeauru difusioonitakistuse, kastepunkti ja konstruktsioonide "hingamise" kohta.</li>
+          <li>✓ <strong>Warmotech termoprofiilid:</strong> Akende ja uste paigaldamine soojustuskihti külmasildade vältimiseks (ψ-väärtuste optimeerimine).</li>
+        </ul>
+        <a href="#" class="btn btn-primary" style="background:#ffffff; color:#005836;">Ava Ekspertiisi ja Järelevalve Teabekeskus →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Retailer Network (No E-Shop — Clear B2B Manufacturer Channel) -->
+  <section class="section" style="padding-top: 0;">
+    <div class="retail-box">
+      <div class="retail-header">
+        <div>
+          <div class="section-eyebrow">Volitatud edasimüüjate võrgustik üle Eesti</div>
+          <h3 style="font-size:24px; font-weight:800; color:var(--slate-900);">Kust osta Estplasti EPS-soojustusmaterjale?</h3>
+          <p style="font-size:14.5px; color:var(--slate-700); margin-top:4px;">
+            Estplast Tootmine OÜ on tootja. Jaemüük ja ehitusobjektide tarned toimuvad läbi Eesti suurimate ehituskaupluste ning projektimüügi osakondade:
+          </p>
+        </div>
+        <a href="#" class="btn btn-primary">Suurprojektide ja hulgimüügi päring →</a>
+      </div>
+
+      <div class="retail-logos">
+        <div class="retailer-badge">
+          <strong>DECORA</strong>
+          <span>Kauplused &amp; Projektimüük</span>
+        </div>
+        <div class="retailer-badge">
+          <strong>EHITUSE ABC</strong>
+          <span>Üle-eestiline võrgustik</span>
+        </div>
+        <div class="retailer-badge">
+          <strong>BAUHOF</strong>
+          <span>Profiklubi &amp; Jaemüük</span>
+        </div>
+        <div class="retailer-badge">
+          <strong>ESPAK</strong>
+          <span>Ehitusmaterjalide keskus</span>
+        </div>
+        <div class="retailer-badge">
+          <strong>EHITUSKAUP24</strong>
+          <span>Kiirtarned objektile</span>
+        </div>
+        <div class="retailer-badge">
+          <strong>KARL BILDER / K-RAUTA</strong>
+          <span>B2B &amp; Fassaadisüsteemid</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Direct Engineering & Sales Contacts -->
+  <section class="section section-alt">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Otsekontakt tehase spetsialistidega</div>
+        <h2 class="section-title">Tehniline nõustamine, projektimüük ja eksport</h2>
+      </div>
+      <div style="font-size:14px; color:var(--slate-600); text-align:right;">
+        <strong>Tehas ja ladu:</strong> Tiigi 1, 74117 Maardu, Harjumaa<br>
+        Laadimine tööpäeviti <strong>E–R 08:00–16:30</strong>
+      </div>
+    </div>
+
+    <div class="contacts-grid">
+      <div class="contact-card">
+        <div class="contact-role">EPS Soojustus &amp; Projektimüük</div>
+        <div class="contact-name">Ferenc Traksler</div>
+        <div class="contact-desc">Suurprojektid, edasimüüjad, erimõõdud ja tehniline konsultatsioon</div>
+        <div class="contact-meta">
+          Tel: +372 510 0494<br>
+          E-post: ferenc@estplast.ee
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">Warmotech Termoprofiilid</div>
+        <div class="contact-name">Kert Prants</div>
+        <div class="contact-desc">Akna- ja uksesõlmede külmasillavabad paigaldusprofiilid</div>
+        <div class="contact-meta">
+          Tel: +372 520 0681<br>
+          E-post: kert@estplast.ee
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">Läti ja Baltikumi Eksport</div>
+        <div class="contact-name">Artis Gaujers</div>
+        <div class="contact-desc">Finnfoam / Estplast eksporttarned ja rahvusvahelised partnerid</div>
+        <div class="contact-meta">
+          Tel: +371 2917 1699<br>
+          E-post: artis.gaujers@finnfoam.lv
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">Finants, Arved &amp; Üldinfo</div>
+        <div class="contact-name">Julia Mones / Anna Šatalina</div>
+        <div class="contact-desc">Raamatupidamine ja e-arvete haldus</div>
+        <div class="contact-meta">
+          Tel: +372 6 339 258<br>
+          julia@estplast.ee · anna@estplast.ee
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Corporate Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h4>Estplast Tootmine OÜ (Finnfoam Group)</h4>
+        <p style="margin-bottom:14px; color:#94a3b8; line-height:1.6;">
+          Eesti juhtiv vahtpolüstüreenist (EPS) soojustusplaatide tootja alates 2004. aastast. Kuulume Põhjamaade juhtivasse isolatsioonimaterjalide kontserni Finnfoam OY.
+        </p>
+        <p style="color:#6ee7b7; font-weight:600; font-size:12.5px;">
+          ✓ Eesti Ehitusmaterjalide Tootjate Liidu liige<br>
+          ✓ Eesti Kaubandus-Tööstuskoja liige
+        </p>
+      </div>
+      <div>
+        <h4>Tootekategooriad</h4>
+        <ul>
+          <li>EPS 60 / EPS 60 Fassaad</li>
+          <li>EPS 60 Silver / Silver Fassaad</li>
+          <li>EPS 80 / EPS 100 / EPS 100 Silver</li>
+          <li>EPS 120–250 Perimeeter Pluss &amp; W</li>
+          <li>FF-Floor EPS 100S 3D põrandaplaat</li>
+          <li>Warmotech akna termoprofiilid</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Inseneri Töölaud</h4>
+        <ul>
+          <li>Toimivusdeklaratsioonid (DoP)</li>
+          <li>15 CAD / DWG sõlmejoonist</li>
+          <li>EVS-EN 13163 vastavus ja tolerantsid</li>
+          <li>Soojustuse paksuse kalkulaator</li>
+          <li>Ehitusfüüsika ja tuleohutus</li>
+          <li>Masinloetav /llms.txt ja Schema.org</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tehas ja Rekvisiidid</h4>
+        <p style="color:#cbd5e1; line-height:1.7;">
+          <strong>Aadress:</strong> Tiigi 1, 74117 Maardu, Eesti<br>
+          <strong>Registrikood:</strong> 11044314<br>
+          <strong>Üldine e-post:</strong> marketing@estplast.ee<br>
+          <strong>Privaatsuspoliitika &amp; Küpsiste eelistused</strong>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Estplast Tootmine OÜ · Kõik õigused kaitstud (Finnfoam OY Group)</span>
+      <span>HTML5 Semantiline Arhitektuur · lang="et" · JSON-LD Product &amp; ManufacturingBusiness Schema</span>
+    </div>
+  </footer>
+
+</body>
+</html>
